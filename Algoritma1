@@ -9,11 +9,7 @@ namespace ConsoleApplication1
    
     class Program
     {
-       static void m1()
-        {
-            string[] harfler = { "a", "b", "c", "d", "e","f", "g", "h", "ı", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "x", "y", "z" };
-            Console.WriteLine(harfler[1]);
-        }
+       
         static void Main(string[] args)
         {
             char[] harfler = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z' };
