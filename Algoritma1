@@ -30,20 +30,7 @@ namespace ConsoleApplication1
                         break;
                     }
                 }  Console.WriteLine(girdi[i].ToString());
-               /* if (girdi[i] == 'a')
-                {
-                    toplamdeger = toplamdeger + (2 * i);
-                }
-                if (girdi[i] == 'b')
-                {
-                    toplamdeger = toplamdeger + (3 * i);
-
-                }
-                if (girdi[i] == 'c')
-                {
-                    toplamdeger = toplamdeger + (4 * i);
-
-                }*/
+              
             }
             Console.WriteLine(toplamdeger.ToString());
 
