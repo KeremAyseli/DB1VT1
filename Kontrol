@@ -13,17 +13,14 @@ namespace veri_tabanı_deneme
             
             if(kontrol_tekrar(liste, gelen_deger)== true)
             {
-
                 liste.Add(gelen_deger);
-                Console.WriteLine(gelen_deger);
-                   
+                Console.WriteLine(gelen_deger);                
             }
             else
             { MessageBox.Show("eklemeye çalıştığınız değer mevcut");
                 id++;
                 liste.Add(id);
             }
-
         }
        public static bool kontrol_tekrar(List<int> liste, int yeni_eklenen)
         { 
