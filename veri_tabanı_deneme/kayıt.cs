@@ -15,17 +15,9 @@ namespace veri_tabanı_deneme
             T liste = JsonConvert.DeserializeObject<T>(json);
             return liste;
         }
-        public void JsonOlustur(string sıra, T veri)
-        {
-            StreamWriter yazma = new StreamWriter(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + sıra + ".json");
-            string jsonDosya = JsonConvert.SerializeObject(veri);
-            yazma.WriteLine(jsonDosya);
-            yazma.Close();
-
-        }
+        
 
        
-
         public string[] klasörOku(string yol)
         {
             string[] dosyalar = Directory.GetFiles(yol);
@@ -34,24 +26,26 @@ namespace veri_tabanı_deneme
         }
 
 
-        public void YerBulma(string deger)
-        {char[] alfabe = { 'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z' };
-            int toplam_deger;
-            string[] parca = deger.Split(' ');
-            for(int i = 0; i < parca.Length; i++)
+        public int YerBulma(string deger)
+        {
+            char[] alfabe = { 'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z' };
+            int toplam_deger = 0;
+            char[] parca = deger.ToCharArray();
+            for (int i = 0; i < parca.Length; i++)
             {
-                for(int x=0;x<alfabe.Length;x++)
+                for (int x = 0; x < alfabe.Length; x++)
                 {
-                    if(parca[i]==alfabe[x].ToString())
+                    if (parca[i].ToString() == alfabe[x].ToString())
                     {
-                        toplam_deger = (i + x) * 10;
+                        toplam_deger += (i + x) * 10;
+                        Console.WriteLine(toplam_deger + " Bu sayılar arasında olacak");
                     }
                 }
-                
+
             }
-            
+            return toplam_deger;
         }
-     public void aralıkBulma(int arananSayı,int aralık)
+     public string aralıkBulma(int arananSayı,int aralık)
         {
            
             int x =arananSayı, y = aralık;
@@ -60,6 +54,7 @@ namespace veri_tabanı_deneme
                 Console.WriteLine("girilen sayı 0 ile" + y + " arasındadır");
                 this.altAralık = 0;
                 this.üstAralık = y;
+                return 0.ToString() + "-" + y.ToString();
             }
             else
             {
@@ -68,10 +63,24 @@ namespace veri_tabanı_deneme
                 int z = x + y;
                 Console.WriteLine(x + " " + y + " " + z);
                 this.üstAralık = z;
-                this.altAralık = x;   
+                this.altAralık = x;
+                return üstAralık + "-" + altAralık;
             }
         }
-       
 
+        public void JsonOlustur(string sıra, T veri,string girilecekVeri)
+        {
+            int x = YerBulma(girilecekVeri);
+            FileInfo dosya = new FileInfo(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri), 100) + @"\" + sıra + ".json");
+            dosya.Directory.Create();
+            Console.WriteLine(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri), 100) + @"\" + sıra + ".json"+" dosya konumu");
+            Console.WriteLine(x.ToString() + " bu veriler");
+            StreamWriter yazma = new StreamWriter(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri),100) + @"\" + sıra + ".json");
+            
+            string jsonDosya = JsonConvert.SerializeObject(veri);
+            yazma.WriteLine(jsonDosya);
+            yazma.Close();
+
+        }
     }
 }
