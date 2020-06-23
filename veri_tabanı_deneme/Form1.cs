@@ -18,13 +18,14 @@ namespace veri_tabanı_deneme
         {
             InitializeComponent();
         }
-
+        kayıt<veriYapısı> kayıt = new kayıt<veriYapısı>();
+        veriYapısı veri = new veriYapısı();
+        kayıt<VeriTipi> kayı2 = new kayıt<VeriTipi>();
+        VeriTipi veri2 = new VeriTipi();
          private void Form1_Load(object sender, EventArgs e)
         {
-             kayıt<veriYapısı> kayıt = new kayıt<veriYapısı>();
-             kayıt<VeriTipi> kayı2 = new kayıt<VeriTipi>();
-             veriYapısı veri = new veriYapısı();
-             VeriTipi veri2 = new VeriTipi();
+             
+            
              veri2.id = 1;
              veri2.isim = "deneme";
              veri2.soyisim = "merhaba";
@@ -36,23 +37,28 @@ namespace veri_tabanı_deneme
              kayı2.JsonOlustur("bilgiler900", veri2,"merhaba");
 
 
-              foreach(string dosyalar in kayıt.klasörOku(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak"))
-               {
-                   Console.WriteLine(dosyalar);
-                  veriYapısı s= kayıt.jsonOku(dosyalar);
-                Console.WriteLine(s.id);
-                Console.WriteLine(s.veri);
-                Console.WriteLine(s.veri_meta);
-               }
+              
 
 
             kayıt.aralıkBulma(kayıt.YerBulma("merhaba"),100);
              kayı2.YerBulma("deneme");
-            
-            
-        
 
     }
-       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            veri.veri = textBox1.Text;
+            kayıt.JsonOlustur("bilgiler800", veri, veri.veri);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            veri.veri = textBox2.Text;
+                veriYapısı s = kayıt.jsonOku(veri.veri);
+            Console.WriteLine(s.veri);    
+            
+
+        }
     }
 }

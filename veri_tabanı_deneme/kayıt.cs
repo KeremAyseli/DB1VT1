@@ -8,15 +8,18 @@ namespace veri_tabanı_deneme
     public  class kayıt<T>
     {
         int altAralık,üstAralık;
-        public T jsonOku(string veri_kaynak)
+        public T jsonOku(string aranacakVeri)
         {
-            StreamReader okuma = new StreamReader(veri_kaynak);
+            StreamReader okuma = new StreamReader(adresOlusturma(aranacakVeri, "bilgiler800"));
             string json = okuma.ReadToEnd();
             T liste = JsonConvert.DeserializeObject<T>(json);
             return liste;
         }
         
-
+        string adresOlusturma(string girilecekVeri,string sıra)
+        {
+            return @"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri), 100) + @"\" + sıra + ".json";
+        }
        
         public string[] klasörOku(string yol)
         {
