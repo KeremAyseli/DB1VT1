@@ -10,15 +10,28 @@ namespace veri_tabanı_deneme
         int altAralık,üstAralık;
         public T jsonOku(string aranacakVeri)
         {
-            StreamReader okuma = new StreamReader(adresOlusturma(aranacakVeri, "bilgiler800"));
-            string json = okuma.ReadToEnd();
-            T liste = JsonConvert.DeserializeObject<T>(json);
-            return liste;
+         string[] adresler  = klasörOku(adresOlusturma(aranacakVeri));
+
+            T liste; string json,bos=" ";
+            T bosListe = JsonConvert.DeserializeObject<T>(bos);
+            foreach (string adres in adresler)
+            {
+                Console.WriteLine(adres);
+                StreamReader okuma = new StreamReader(adres);
+                json = okuma.ReadToEnd();
+                liste = JsonConvert.DeserializeObject<T>(json);
+                return liste;
+            }
+            return bosListe;
+            
+            
         }
-        
-        string adresOlusturma(string girilecekVeri,string sıra)
+
+       
+
+        string adresOlusturma(string girilecekVeri)
         {
-            return @"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri), 100) + @"\" + sıra + ".json";
+            return @"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri), 100) ;
         }
        
         public string[] klasörOku(string yol)
