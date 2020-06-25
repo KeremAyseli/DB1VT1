@@ -8,23 +8,26 @@ namespace veri_tabanı_deneme
     public  class kayıt<T>
     {
         int altAralık,üstAralık;
-        public T jsonOku(string aranacakVeri)
+        public T[] jsonOku(string aranacakVeri)
         {
-         string[] adresler  = klasörOku(adresOlusturma(aranacakVeri));
-
-            T liste; string json,bos=" ";
-            T bosListe = JsonConvert.DeserializeObject<T>(bos);
-            foreach (string adres in adresler)
+         string[] adresler = klasörOku(adresOlusturma(aranacakVeri));
+           T[] liste=new T[adresler.Length];
+            string json;
+            
+            for(int i=0;i<adresler.Length;i++)
             {
-                Console.WriteLine(adres);
-                StreamReader okuma = new StreamReader(adres);
-                json = okuma.ReadToEnd();
-                liste = JsonConvert.DeserializeObject<T>(json);
-                return liste;
+                Console.WriteLine(adresler[i]);  
             }
-            return bosListe;
-            
-            
+            foreach (string adres in adresler)
+            {for (int i = 0; i < liste.Length; i++)
+                {Console.WriteLine("Gelen adresler: "+adres);
+                StreamReader okuma = new StreamReader(adres);
+                json = okuma.ReadToEnd(); 
+                 liste[i] = JsonConvert.DeserializeObject<T>(json); }   
+            }
+
+            return liste;
+           
         }
 
        

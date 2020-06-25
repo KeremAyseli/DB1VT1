@@ -55,8 +55,9 @@ namespace veri_tabanı_deneme
         {
 
             veri.veri = textBox2.Text;
-                veriYapısı s = kayıt.jsonOku(veri.veri);
-            Console.WriteLine(s.veri);    
+                veriYapısı[] s = kayıt.jsonOku(veri.veri);
+            for (int i = 0; i < s.Length; i++)
+            { Console.WriteLine(s[i].veri+" "+s[i].veri_meta+" "+s[i].id); }    
             
 
         }
