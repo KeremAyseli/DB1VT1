@@ -33,8 +33,8 @@ namespace veri_tabanı_deneme
              veri.id = 800;
              veri.veri = "bubirdenemedir";
              veri.veri_meta = "merhaba";
-             kayıt.JsonOlustur("bilgiler800",veri,"merhaba");
-             kayı2.JsonOlustur("bilgiler900", veri2,"merhaba");
+            // kayıt.JsonOlustur("bilgiler800",veri,"merhaba");
+           //  kayı2.JsonOlustur("bilgiler900", veri2,"merhaba");
 
 
               
@@ -48,7 +48,7 @@ namespace veri_tabanı_deneme
         private void button1_Click(object sender, EventArgs e)
         {
             veri.veri = textBox1.Text;
-            kayıt.JsonOlustur("bilgiler800", veri, veri.veri);
+            kayıt.JsonOlustur(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\", veri, veri.veri);
         }
 
         private void button2_Click(object sender, EventArgs e)
