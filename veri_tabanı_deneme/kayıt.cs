@@ -31,8 +31,6 @@ namespace veri_tabanı_deneme
            
         }
 
-       
-
         string adresOlusturma(string girilecekVeri)
         {
             return @"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri), 100) ;
