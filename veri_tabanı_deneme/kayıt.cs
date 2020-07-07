@@ -14,18 +14,13 @@ namespace veri_tabanı_deneme
          string[] adresler = klasörOku(adresOlusturma(aranacakVeri));
            T[] liste=new T[adresler.Length];
             string json;
-            
-            for(int i=0;i<adresler.Length;i++)
-            {
-                Console.WriteLine(adresler[i]);  
-            }
-            foreach (string adres in adresler)
-            {for (int i = 0; i < liste.Length; i++)
-                {Console.WriteLine("Gelen adresler: "+adres);
-                StreamReader okuma = new StreamReader(adres);
+           
+            for (int i = 0; i < liste.Length; i++)
+                {Console.WriteLine("Gelen adresler: "+adresler[i]);
+                StreamReader okuma = new StreamReader(adresler[i].ToString());
                 json = okuma.ReadToEnd(); 
                  liste[i] = JsonConvert.DeserializeObject<T>(json); }   
-            }
+            
 
             return liste;
            
@@ -35,7 +30,7 @@ namespace veri_tabanı_deneme
 
         string adresOlusturma(string girilecekVeri)
         {
-            return @"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri), 100) ;
+            return @"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) ;
         }
        
         public string[] klasörOku(string yol)
@@ -71,10 +66,10 @@ namespace veri_tabanı_deneme
             }
             return toplam_deger;
         }
-     public string aralıkBulma(int arananSayı,int aralık)
+     public string aralıkBulma(string girilencekVeri,int aralık)
         {
            
-            int x =arananSayı, y = aralık;
+            int x =YerBulma(girilencekVeri), y = aralık;
             if (x < y)
             {
                 Console.WriteLine("girilen sayı 0 ile" + y + " arasındadır");
@@ -87,7 +82,7 @@ namespace veri_tabanı_deneme
                 x = x / y;
                 x = x * y;
                 int z = x + y;
-                Console.WriteLine(x + " " + y + " " + z);
+                Console.WriteLine(x + " " + x + " " + z);
                 this.üstAralık = z;
                 this.altAralık = x;
                 return üstAralık + "-" + altAralık;
@@ -97,11 +92,11 @@ namespace veri_tabanı_deneme
         public void JsonOlustur(string Tablo, T veri,string girilecekVeri)
         {
             int x = YerBulma(girilecekVeri);
-            FileInfo dosya = new FileInfo(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri), 100) + @"\" + dosyaİsimOlusturma(Tablo)+".json" );
+            FileInfo dosya = new FileInfo(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) + @"\" + dosyaİsimOlusturma(Tablo)+".json" );
             dosya.Directory.Create();
-            Console.WriteLine(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri), 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json"+" dosya konumu");
+            Console.WriteLine(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json"+" dosya konumu");
             Console.WriteLine(x.ToString() + " bu veriler");
-            StreamWriter yazma = new StreamWriter(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(YerBulma(girilecekVeri),100) + @"\" +dosyaİsimOlusturma(Tablo)+".json" );
+            StreamWriter yazma = new StreamWriter(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(girilecekVeri,100) + @"\" +dosyaİsimOlusturma(Tablo)+".json" );
             
             string jsonDosya = JsonConvert.SerializeObject(veri);
             yazma.WriteLine(jsonDosya);

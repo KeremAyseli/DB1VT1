@@ -20,7 +20,6 @@ namespace veri_tabanı_deneme
                 {
                     Console.WriteLine(isimler[i] + " Dosya kontrol");
                 }
-
             }
             return false;
         }

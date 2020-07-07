@@ -24,26 +24,19 @@ namespace veri_tabanı_deneme
         VeriTipi veri2 = new VeriTipi();
          private void Form1_Load(object sender, EventArgs e)
         {
-             
-            
-             veri2.id = 1;
-             veri2.isim = "deneme";
-             veri2.soyisim = "merhaba";
-             veri2.yaş = 19;
-             veri.id = 800;
-             veri.veri = "bubirdenemedir";
-             veri.veri_meta = "merhaba";
+
+
+            veri2.id = 1;
+            veri2.isim = "deneme";
+            veri2.soyisim = "merhaba";
+            veri2.yaş = 19;
+            veri.id = 800;
+            veri.veri = "bubirdenemedir";
+            veri.veri_meta = "merhaba";
             // kayıt.JsonOlustur("bilgiler800",veri,"merhaba");
-           //  kayı2.JsonOlustur("bilgiler900", veri2,"merhaba");
+            //  kayı2.JsonOlustur("bilgiler900", veri2,"merhaba");
 
-
-              
-
-
-            kayıt.aralıkBulma(kayıt.YerBulma("merhaba"),100);
-             kayı2.YerBulma("deneme");
-
-    }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

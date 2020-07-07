@@ -12,10 +12,7 @@ namespace veri_tabanı_deneme
     {
     public int id { get; set; }
     public string veri { get; set; }
-    public string veri_meta { get; set; }
-
-   
-       
+    public string veri_meta { get; set; } 
 }
 
     
