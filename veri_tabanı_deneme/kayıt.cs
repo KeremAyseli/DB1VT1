@@ -26,8 +26,6 @@ namespace veri_tabanı_deneme
            
         }
 
-       
-
         string adresOlusturma(string girilecekVeri)
         {
             return @"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) ;
@@ -45,8 +43,7 @@ namespace veri_tabanı_deneme
                 return null;
             }
         }
-
-
+        
         public int YerBulma(string deger)
         {
             char[] alfabe = { 'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z' };
