@@ -5,7 +5,7 @@ using Newtonsoft;
 using Newtonsoft.Json;
 namespace veri_tabanı_deneme
 {
-    public  class kayıt<T>
+    public class kayıt<T>
     {
         kontrol kontrolEtme = new kontrol();
         int altAralık,üstAralık;
@@ -20,15 +20,11 @@ namespace veri_tabanı_deneme
                 StreamReader okuma = new StreamReader(adresler[i].ToString());
                 json = okuma.ReadToEnd(); 
                  liste[i] = JsonConvert.DeserializeObject<T>(json); }   
-            
-
-            return liste;
-           
+            return liste;       
         }
-
         string adresOlusturma(string girilecekVeri)
         {
-            return @"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) ;
+            return @"E:\Visual\veri_tabani_deneme\veri_tabani_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) ;
         }
        
         public string[] klasörOku(string yol)
@@ -43,7 +39,8 @@ namespace veri_tabanı_deneme
                 return null;
             }
         }
-        
+
+
         public int YerBulma(string deger)
         {
             char[] alfabe = { 'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z' };
@@ -89,11 +86,11 @@ namespace veri_tabanı_deneme
         public void JsonOlustur(string Tablo, T veri,string girilecekVeri)
         {
             int x = YerBulma(girilecekVeri);
-            FileInfo dosya = new FileInfo(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) + @"\" + dosyaİsimOlusturma(Tablo)+".json" );
+            FileInfo dosya = new FileInfo(@"E:\Visual\veri_tabani_deneme\veri_tabani_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) + @"\" + dosyaİsimOlusturma(Tablo)+".json" );
             dosya.Directory.Create();
-            Console.WriteLine(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json"+" dosya konumu");
+            Console.WriteLine(@"E:\Visual\veri_tabani_deneme\veri_tabani_deneme\kaynak\" + aralıkBulma(girilecekVeri, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json"+" dosya konumu");
             Console.WriteLine(x.ToString() + " bu veriler");
-            StreamWriter yazma = new StreamWriter(@"E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\kaynak\" + aralıkBulma(girilecekVeri,100) + @"\" +dosyaİsimOlusturma(Tablo)+".json" );
+            StreamWriter yazma = new StreamWriter(@"E:\Visual\veri_tabani_deneme\veri_tabani_deneme\kaynak\" + aralıkBulma(girilecekVeri,100) + @"\" +dosyaİsimOlusturma(Tablo)+".json" );
             
             string jsonDosya = JsonConvert.SerializeObject(veri);
             yazma.WriteLine(jsonDosya);

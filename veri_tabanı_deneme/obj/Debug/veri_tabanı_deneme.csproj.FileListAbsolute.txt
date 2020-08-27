@@ -1,7 +1,6 @@
 E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\bin\Debug\veri_tabanı_deneme.exe.config
 E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\bin\Debug\veri_tabanı_deneme.exe
 E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\bin\Debug\veri_tabanı_deneme.pdb
-E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\obj\Debug\veri_tabanı_deneme.csprojResolveAssemblyReference.cache
 E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\obj\Debug\veri_tabanı_deneme.Form1.resources
 E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\obj\Debug\veri_tabanı_deneme.Properties.Resources.resources
 E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\obj\Debug\veri_tabanı_deneme.csproj.GenerateResource.Cache
@@ -9,3 +8,6 @@ E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\obj\Debug\veri_tabanı_deneme.
 E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\obj\Debug\veri_tabanı_deneme.pdb
 E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\bin\Debug\Newtonsoft.Json.dll
 E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\bin\Debug\Newtonsoft.Json.xml
+E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\obj\Debug\veri_tabanı_deneme.csprojAssemblyReference.cache
+E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\obj\Debug\veri_tabanı_deneme.csproj.CoreCompileInputs.cache
+E:\Visual\veri_tabanı_deneme\veri_tabanı_deneme\obj\Debug\veri_tabanı_deneme.csproj.CopyComplete

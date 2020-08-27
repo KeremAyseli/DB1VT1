@@ -56,6 +56,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="assemblyOkuma.cs" />
     <Compile Include="Komutlar.cs" />
     <Compile Include="kontrol.cs" />
     <Compile Include="Program.cs" />
@@ -75,7 +76,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="kaynak\bilgiler.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -91,7 +91,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="kaynak\Yeni Metin Belgesi %283%29.txt" />
+    <Content Include="kaynak\yazı.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sınıflar\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

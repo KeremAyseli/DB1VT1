@@ -1,0 +1,13 @@
+E:\Visual\veri_tabanı_deneme\Motor\bin\Debug\netcoreapp3.1\Motor.exe
+E:\Visual\veri_tabanı_deneme\Motor\bin\Debug\netcoreapp3.1\Motor.deps.json
+E:\Visual\veri_tabanı_deneme\Motor\bin\Debug\netcoreapp3.1\Motor.runtimeconfig.json
+E:\Visual\veri_tabanı_deneme\Motor\bin\Debug\netcoreapp3.1\Motor.runtimeconfig.dev.json
+E:\Visual\veri_tabanı_deneme\Motor\bin\Debug\netcoreapp3.1\Motor.dll
+E:\Visual\veri_tabanı_deneme\Motor\bin\Debug\netcoreapp3.1\Motor.pdb
+E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.csprojAssemblyReference.cache
+E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.AssemblyInfoInputs.cache
+E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.AssemblyInfo.cs
+E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.csproj.CoreCompileInputs.cache
+E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.dll
+E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.pdb
+E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.genruntimeconfig.cache

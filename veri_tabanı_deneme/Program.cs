@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using veri_tabanı_deneme;
 
-namespace veri_tabanı_deneme
+namespace veri_tabani_deneme
 {
     static class Program
     {
