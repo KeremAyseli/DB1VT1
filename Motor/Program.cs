@@ -9,6 +9,8 @@ namespace Motor
         
         static void Main(string[] args)
         {
+
+          //  Console.WriteLine(args[0]);
             List<string> Degiskenler = new List<string>();
             Degiskenler.Add("int i=0; String Merhaba=`merhaba`");
             for (int i = 0; i < args.Length; i++)
@@ -18,7 +20,8 @@ namespace Motor
             }
             //Sınıflar adında bir klasör oluşturdum ki sınıflarımıza erişmek daha rahat olsun.
             Directory.CreateDirectory(@"E:\Visual\veri_tabanı_deneme\Motor\Sınıflar");
-            string yol = @"E:\Visual\veri_tabanı_deneme\Motor\Sınıflar\deneme.cs";
+            string yol = @"E:\Visual\veri_tabanı_deneme\Motor\Sınıflar\"+args[0];
+            Console.WriteLine(yol);
             FileStream SınıfYazma = new FileStream(yol,FileMode.Create);  
             
             StreamWriter yazma = new StreamWriter(SınıfYazma);
@@ -30,9 +33,9 @@ yazma.Write("using system; namespace Motor{class deneme{");
             }
             yazma.Write("}}");
             yazma.Close();
+
+            Console.ReadKey();
             
-            
-          
         }
     }
 }

@@ -55,8 +55,30 @@ namespace veri_tabanı_deneme
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Komutlar komut = new Komutlar();
-            komut.sınıfOlustur();
+          // var x =Process.Start(@"E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.exe");
+        
+           try
+            {
+                Process islem = new Process();
+                islem.StartInfo.UseShellExecute = false;
+                islem.StartInfo.FileName = @"E:\Visual\veri_tabanı_deneme\Motor\bin\Debug\netcoreapp3.1\Motor.exe";
+                islem.StartInfo.Arguments = "Sınıf.cs";
+                //islem.StartInfo.CreateNoWindow = true;
+               bool sat= islem.Start();
+                if (sat == true)
+                {
+                    Console.WriteLine("Sınıf oluşturma başarılı");
+
+                }
+                else
+                {
+                    Console.WriteLine("Sınıf oluşturma başarısız");
+                }
+            }
+            catch(Exception a)
+            {
+                Console.WriteLine(a.Message + " HATA MESAJI");
+            }
         }
     }
 }

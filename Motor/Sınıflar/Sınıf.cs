@@ -1,0 +1,1 @@
+using System; namespace Motor{class Sınıf{int i=0; string Merhaba = "merhaba"; }}
