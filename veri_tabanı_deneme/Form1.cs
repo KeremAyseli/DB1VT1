@@ -55,14 +55,15 @@ namespace veri_tabanı_deneme
 
         private void button3_Click(object sender, EventArgs e)
         {
-          // var x =Process.Start(@"E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.exe");
-        
+            // var x =Process.Start(@"E:\Visual\veri_tabanı_deneme\Motor\obj\Debug\netcoreapp3.1\Motor.exe");
+            string[] dizi = { "sınıf1.cs", "Sınıflar3.cs" };
+           
            try
             {
                 Process islem = new Process();
                 islem.StartInfo.UseShellExecute = false;
                 islem.StartInfo.FileName = @"E:\Visual\veri_tabanı_deneme\Motor\bin\Debug\netcoreapp3.1\Motor.exe";
-                islem.StartInfo.Arguments = "Sınıf.cs";
+                islem.StartInfo.Arguments = "denem2,Sınıflar,Müsteri,Öğrenciler"; 
                 //islem.StartInfo.CreateNoWindow = true;
                bool sat= islem.Start();
                 if (sat == true)

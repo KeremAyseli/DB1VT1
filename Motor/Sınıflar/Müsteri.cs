@@ -1,0 +1,1 @@
+using system; namespace Motor{class Müsteri{int i=0; String Merhaba=`merhaba`denem2,Sınıflar,Müsteri,Öğrenciler}}

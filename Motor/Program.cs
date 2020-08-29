@@ -7,10 +7,16 @@ namespace Motor
     class Program
     {
         
+      
         static void Main(string[] args)
         {
-
-          //  Console.WriteLine(args[0]);
+           
+            Sınıfİslemleri sınıfİslemleri = new Sınıfİslemleri();
+            string[] sınıflar = sınıfİslemleri.Parcalama(args[0]);
+            Console.WriteLine("ARGÜMANLAR: " + sınıfİslemleri.Parcalama(args[0]).Length) ;
+            
+            
+            //  Console.WriteLine(args[0]);
             List<string> Degiskenler = new List<string>();
             Degiskenler.Add("int i=0; String Merhaba=`merhaba`");
             for (int i = 0; i < args.Length; i++)
@@ -20,20 +26,22 @@ namespace Motor
             }
             //Sınıflar adında bir klasör oluşturdum ki sınıflarımıza erişmek daha rahat olsun.
             Directory.CreateDirectory(@"E:\Visual\veri_tabanı_deneme\Motor\Sınıflar");
-            string yol = @"E:\Visual\veri_tabanı_deneme\Motor\Sınıflar\"+args[0];
-            Console.WriteLine(yol);
-            FileStream SınıfYazma = new FileStream(yol,FileMode.Create);  
-            
-            StreamWriter yazma = new StreamWriter(SınıfYazma);
-          
-yazma.Write("using system; namespace Motor{class deneme{");
-            for (int i = 0; i < Degiskenler.Count; i++)
-            {
-                yazma.Write(Degiskenler[i]);   
-            }
-            yazma.Write("}}");
-            yazma.Close();
 
+            for (int i = 0; i < sınıflar.Length; i++)
+            { string yol = @"E:\Visual\veri_tabanı_deneme\Motor\Sınıflar\" + sınıflar[i]+".cs";
+                Console.WriteLine(yol);
+                FileStream SınıfYazma = new FileStream(yol, FileMode.Create);
+
+                StreamWriter yazma = new StreamWriter(SınıfYazma);
+
+                yazma.Write("using system; namespace Motor{class " + sınıflar[i]+ "{");
+                for (int a = 0; a < Degiskenler.Count; a++)
+                {
+                    yazma.Write(Degiskenler[a]);
+                }
+                yazma.Write("}}");
+                yazma.Close();
+            }
             Console.ReadKey();
             
         }
