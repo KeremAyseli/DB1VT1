@@ -1,1 +1,0 @@
-using system; namespace Motor{class deneme{int i=0; String Merhaba="merhaba"}}

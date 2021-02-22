@@ -1,1 +1,0 @@
-public class sınıf{int x=0;string isim='merhaba';}
