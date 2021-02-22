@@ -1,0 +1,13 @@
+G:\Visual\Sunucu\Sunucu\bin\Debug\netcoreapp3.1\Sunucu.exe
+G:\Visual\Sunucu\Sunucu\bin\Debug\netcoreapp3.1\Sunucu.deps.json
+G:\Visual\Sunucu\Sunucu\bin\Debug\netcoreapp3.1\Sunucu.runtimeconfig.json
+G:\Visual\Sunucu\Sunucu\bin\Debug\netcoreapp3.1\Sunucu.runtimeconfig.dev.json
+G:\Visual\Sunucu\Sunucu\bin\Debug\netcoreapp3.1\Sunucu.dll
+G:\Visual\Sunucu\Sunucu\bin\Debug\netcoreapp3.1\Sunucu.pdb
+G:\Visual\Sunucu\Sunucu\obj\Debug\netcoreapp3.1\Sunucu.csprojAssemblyReference.cache
+G:\Visual\Sunucu\Sunucu\obj\Debug\netcoreapp3.1\Sunucu.AssemblyInfoInputs.cache
+G:\Visual\Sunucu\Sunucu\obj\Debug\netcoreapp3.1\Sunucu.AssemblyInfo.cs
+G:\Visual\Sunucu\Sunucu\obj\Debug\netcoreapp3.1\Sunucu.csproj.CoreCompileInputs.cache
+G:\Visual\Sunucu\Sunucu\obj\Debug\netcoreapp3.1\Sunucu.dll
+G:\Visual\Sunucu\Sunucu\obj\Debug\netcoreapp3.1\Sunucu.pdb
+G:\Visual\Sunucu\Sunucu\obj\Debug\netcoreapp3.1\Sunucu.genruntimeconfig.cache
