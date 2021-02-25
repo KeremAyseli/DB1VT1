@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Text.Json;
+using System.Linq.Expressions;
+using System.Linq;
+
 namespace DB1VT1
 {
     public class Kayıt<T>
     {
         Kontrol kontrolEtme = new Kontrol();
         int altAralık, üstAralık;
-        public T[] jsonOku(string aranacakVeri)
+        IQueryable<T> aranan;
+        public T[] KayıtOku(string aranacakVeri)
         {
             string[] adresler = klasörOku(adresOlusturma(aranacakVeri));
             T[] liste = new T[adresler.Length];
@@ -24,6 +28,29 @@ namespace DB1VT1
             }
             return liste;
         }
+        public List<T> jsonOkuListİle(string aranacakVeri)
+        {
+            string[] adresler = klasörOku(adresOlusturma(aranacakVeri));
+            List<T> liste = new List<T>();
+            string json;
+
+            for (int i = 0; i < adresler.Length; i++)
+            {
+                Console.WriteLine("Gelen adresler: " + adresler[i]);
+                StreamReader okuma = new StreamReader(adresler[i].ToString());
+                json = okuma.ReadToEnd();
+                liste.Add(JsonSerializer.Deserialize<T>(json));
+            }
+            return liste;
+        }
+
+        public T VeriBul(Expression<Func<T,bool>>ArananVeriler,string anahtarKelime)
+        {
+         List<T>BulunanDegerler=jsonOkuListİle(anahtarKelime);
+            aranan = BulunanDegerler.AsQueryable();
+           return aranan.Where(ArananVeriler).FirstOrDefault();
+        }
+
         string adresOlusturma(string girilecekVeri)
         {
             return Environment.CurrentDirectory + aralıkBulma(girilecekVeri, 100);
@@ -84,7 +111,7 @@ namespace DB1VT1
             }
         }
 
-        public void JsonOlustur(string Tablo, T Veri, string AnahtarKelime)
+        public void KayıtGir(string Tablo, T Veri, string AnahtarKelime)
         {
             int x = YerBulma(AnahtarKelime);
             FileInfo dosya = new FileInfo(Environment.CurrentDirectory + aralıkBulma(AnahtarKelime, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json");
