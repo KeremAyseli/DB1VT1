@@ -13,7 +13,7 @@ namespace DB1VT1
         Kontrol kontrolEtme = new Kontrol();
         int altAralık, üstAralık;
         IQueryable<T> aranan;
-        public T[] KayıtOku(string aranacakVeri)
+        public T[] jsonOku(string aranacakVeri)
         {
             string[] adresler = klasörOku(adresOlusturma(aranacakVeri));
             T[] liste = new T[adresler.Length];
@@ -44,7 +44,7 @@ namespace DB1VT1
             return liste;
         }
 
-        public T VeriBul(Expression<Func<T,bool>>ArananVeriler,string anahtarKelime)
+        public T ilkBulunanVeri(Expression<Func<T,bool>>ArananVeriler,string anahtarKelime)
         {
          List<T>BulunanDegerler=jsonOkuListİle(anahtarKelime);
             aranan = BulunanDegerler.AsQueryable();
@@ -111,7 +111,7 @@ namespace DB1VT1
             }
         }
 
-        public void KayıtGir(string Tablo, T Veri, string AnahtarKelime)
+        public void JsonOlustur(string Tablo, T Veri, string AnahtarKelime)
         {
             int x = YerBulma(AnahtarKelime);
             FileInfo dosya = new FileInfo(Environment.CurrentDirectory + aralıkBulma(AnahtarKelime, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json");
