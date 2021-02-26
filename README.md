@@ -1,7 +1,7 @@
 # **DB1VT1 TR**
 
 
-# **DB1VT1 ENG**
+# **[DB1VT1 ENG](#https://github.com/KeremAyseli/Veri_tabani/blob/master/README.md#db1vt1-eng-1****)**
 
 # **DB1VT1 TR**
 DB1VT1 veritabanı yapısı şu anlık json dosyalar üzerinden çalışan bir arama yapısına sahip. Genel olarak arama algoritması şu şekilde çalışıyor; girilen anahtar kelime ilk önce harflerine bölünüyor ve her bir harfe konumuna göre puan veriliyor ve , verilen bu puanlar toplanınca anahtar kelimenin toplam puanı oluşuyor, oluşan bu puana göre bilgilerin kaydedileceği dosya aralığı belli oluyor. Bunu göreselleştirmek gerekirse:
