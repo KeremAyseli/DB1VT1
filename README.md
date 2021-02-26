@@ -1,9 +1,9 @@
-# **DB1VT1 TR**
+<h1><a href='#tr'>DB1VT1 TR</a></h1>
+<h1><a href='#eng'>DB1VT1 ENG</a></h1>
 
 
-# **[DB1VT1 ENG](#https://github.com/KeremAyseli/Veri_tabani/blob/master/README.md#db1vt1-eng-1****)**
 
-# **DB1VT1 TR**
+# **DB1VT1 TR** <a id='tr'></a>
 DB1VT1 veritabanı yapısı şu anlık json dosyalar üzerinden çalışan bir arama yapısına sahip. Genel olarak arama algoritması şu şekilde çalışıyor; girilen anahtar kelime ilk önce harflerine bölünüyor ve her bir harfe konumuna göre puan veriliyor ve , verilen bu puanlar toplanınca anahtar kelimenin toplam puanı oluşuyor, oluşan bu puana göre bilgilerin kaydedileceği dosya aralığı belli oluyor. Bunu göreselleştirmek gerekirse:
 ### i=harfin olduğu konum
 ### x=harfin alfabede olduğu konum
@@ -61,7 +61,7 @@ veriTabanıBaglnatı.VeriBul(Id => Id.id == 1,aramaİsim).id.ToString()
 Şu anlık veri seçme işlemini LINQ kullanarak sağlyorum ki gelecekte de böyle olmasını umuyorum çünkü hedefim NoSql bir veri tabanı yapmak.Şu anlık seçme işlemini IQueryable arayüzünü kullanarak yapmaktayım gelecekte bu yapılardan ziyade kendi arama yapılarımı oluşturmak istiyorum.
 
 
-# **DB1VT1 ENG**
+# **DB1VT1 ENG <a  id='eng'></a>**
 
 The DB1VT1 data connection currently has a search structure running over json files. Generally, its algorithm is as follows; The entered keyword is first divided by a letter and its score is given according to a letter, and when these points are added, the key total score is formed, according to this score, the file range to be saved is determined. To illustrate this:
 ### i = position of the letter
