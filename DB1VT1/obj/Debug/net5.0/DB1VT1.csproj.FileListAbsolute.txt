@@ -1,0 +1,16 @@
+G:\Visual\DB1VT1\DB1VT1\bin\Debug\net5.0\DB1VT1.exe
+G:\Visual\DB1VT1\DB1VT1\bin\Debug\net5.0\DB1VT1.deps.json
+G:\Visual\DB1VT1\DB1VT1\bin\Debug\net5.0\DB1VT1.runtimeconfig.json
+G:\Visual\DB1VT1\DB1VT1\bin\Debug\net5.0\DB1VT1.runtimeconfig.dev.json
+G:\Visual\DB1VT1\DB1VT1\bin\Debug\net5.0\DB1VT1.dll
+G:\Visual\DB1VT1\DB1VT1\bin\Debug\net5.0\ref\DB1VT1.dll
+G:\Visual\DB1VT1\DB1VT1\bin\Debug\net5.0\DB1VT1.pdb
+G:\Visual\DB1VT1\DB1VT1\obj\Debug\net5.0\DB1VT1.csprojAssemblyReference.cache
+G:\Visual\DB1VT1\DB1VT1\obj\Debug\net5.0\DB1VT1.GeneratedMSBuildEditorConfig.editorconfig
+G:\Visual\DB1VT1\DB1VT1\obj\Debug\net5.0\DB1VT1.AssemblyInfoInputs.cache
+G:\Visual\DB1VT1\DB1VT1\obj\Debug\net5.0\DB1VT1.AssemblyInfo.cs
+G:\Visual\DB1VT1\DB1VT1\obj\Debug\net5.0\DB1VT1.csproj.CoreCompileInputs.cache
+G:\Visual\DB1VT1\DB1VT1\obj\Debug\net5.0\DB1VT1.dll
+G:\Visual\DB1VT1\DB1VT1\obj\Debug\net5.0\ref\DB1VT1.dll
+G:\Visual\DB1VT1\DB1VT1\obj\Debug\net5.0\DB1VT1.pdb
+G:\Visual\DB1VT1\DB1VT1\obj\Debug\net5.0\DB1VT1.genruntimeconfig.cache

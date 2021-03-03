@@ -13,12 +13,12 @@ namespace DB1VT1
         Kontrol kontrolEtme = new Kontrol();
         int altAralık, üstAralık;
         IQueryable<T> aranan;
+        private List<T> AnlıkVeriler;
         public T[] jsonOku(string aranacakVeri)
         {
             string[] adresler = klasörOku(adresOlusturma(aranacakVeri));
             T[] liste = new T[adresler.Length];
             string json;
-
             for (int i = 0; i < liste.Length; i++)
             {
                 Console.WriteLine("Gelen adresler: " + adresler[i]);
@@ -28,6 +28,7 @@ namespace DB1VT1
             }
             return liste;
         }
+       
         public List<T> jsonOkuListİle(string aranacakVeri)
         {
             string[] adresler = klasörOku(adresOlusturma(aranacakVeri));
@@ -43,17 +44,36 @@ namespace DB1VT1
             }
             return liste;
         }
-
+       
         public T ilkBulunanVeri(Expression<Func<T,bool>>ArananVeriler,string anahtarKelime)
         {
-         List<T>BulunanDegerler=jsonOkuListİle(anahtarKelime);
+            List<T> BulunanDegerler = jsonOkuListİle(anahtarKelime);
             aranan = BulunanDegerler.AsQueryable();
            return aranan.Where(ArananVeriler).FirstOrDefault();
         }
-
+        public List<T> BulunanTumVeriler(Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
+        {
+            List<T> BulunanDegerler = jsonOkuListİle(anahtarKelime);
+            aranan = BulunanDegerler.AsQueryable();
+            return aranan.Where(ArananVeriler).ToList();
+        }
+        public void Guncelle(Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
+        {
+            List<T> BulunanDegerler = jsonOkuListİle(anahtarKelime);
+            aranan = BulunanDegerler.AsQueryable();
+            AnlıkVeriler= aranan.Where(ArananVeriler).ToList();
+            
+        }
+        public void Kaydet(string TabloAdi,string anahtarKelime)
+        {
+            for (int i = 0; i < AnlıkVeriler.Count; i++)
+            {
+                JsonOlustur(TabloAdi, AnlıkVeriler[i], anahtarKelime);
+            }
+        }
         string adresOlusturma(string girilecekVeri)
         {
-            return Environment.CurrentDirectory + aralıkBulma(girilecekVeri, 100);
+            return Environment.CurrentDirectory+ aralıkBulma(girilecekVeri, 100);
         }
 
         public string[] klasörOku(string yol)
@@ -72,7 +92,7 @@ namespace DB1VT1
 
         public int YerBulma(string deger)
         {
-            char[] alfabe = { 'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z' };
+             char[] alfabe=  { 'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z' };
             int toplam_deger = 0;
             char[] parca = deger.ToCharArray();
             for (int i = 0; i < parca.Length; i++)
@@ -113,12 +133,15 @@ namespace DB1VT1
 
         public void JsonOlustur(string Tablo, T Veri, string AnahtarKelime)
         {
+            string dosyaAdresi = Environment.CurrentDirectory + aralıkBulma(AnahtarKelime, 100);
             int x = YerBulma(AnahtarKelime);
-            FileInfo dosya = new FileInfo(Environment.CurrentDirectory + aralıkBulma(AnahtarKelime, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json");
-            dosya.Directory.Create();
+          if(!Directory.Exists(dosyaAdresi))
+            {
+                Directory.CreateDirectory(dosyaAdresi);
+            }
             Console.WriteLine(Environment.CurrentDirectory + aralıkBulma(AnahtarKelime, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json" + " dosya konumu");
             Console.WriteLine(x.ToString() + " bu veriler");
-            StreamWriter yazma = new StreamWriter(Environment.CurrentDirectory + aralıkBulma(AnahtarKelime, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json");
+            StreamWriter yazma = new StreamWriter(dosyaAdresi+ @"\" + dosyaİsimOlusturma(Tablo) + ".json");
 
             string jsonDosya = JsonSerializer.Serialize<T>(Veri);
             yazma.WriteLine(jsonDosya);

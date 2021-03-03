@@ -1,4 +1,4 @@
-# **DB1VT1**
+# **DB1VT1 ENG**
 
 The DB1VT1 data connection currently has a search structure running over json files. Generally, its algorithm is as follows; The entered keyword is first divided by a letter and its score is given according to a letter, and when these points are added, the key total score is formed, according to this score, the file range to be saved is determined. To illustrate this:
 ### i = position of the letter

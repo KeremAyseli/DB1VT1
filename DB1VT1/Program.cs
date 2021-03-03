@@ -5,24 +5,29 @@ namespace DB1VT1
 {
     class Program
     {static Stopwatch zaman = new Stopwatch();
+     static  Random rastgeleSayı = new Random();
         static void Main(string[] args)
         {
+         //   string[] isimler = { "kerem", "melih", "alperen", "furkan", "enes", "abdullah", "ege", "emir", "umut", "fatih" };
+         // string[] soyiismler = { "ayseli", "tarca", "şimşek", "bişgin", "beslenti", "sönmez", "öztürk", "mataracı", "bektaş", "aslan" };
             zaman.Start();
 
             Kayıt<Kişiler> veriTabanıBaglnatı = new Kayıt<Kişiler>();
-            Kişiler kişi = new Kişiler();
-            kişi.id = 2;
-            kişi.isim = Console.ReadLine();
-            kişi.soyisim = Console.ReadLine();
-            kişi.yas = 10;
-            veriTabanıBaglnatı.JsonOlustur("Kişiler", kişi, kişi.isim);
-            veriTabanıBaglnatı.jsonOku(Console.ReadLine());
-            int i = 0;
-            string aramaİsim = Console.ReadLine();
-           Console.WriteLine(veriTabanıBaglnatı.ilkBulunanVeri(Id => Id.isim == aramaİsim,aramaİsim).id.ToString());
             
+           Kişiler kişi = new Kişiler();
+          /*  for (int i = 0; i < 100000; i++)
+            {
+                kişi.id = 3;
+                kişi.isim = isimler[rastgeleSayı.Next(0, 9)];
+                kişi.soyisim = soyiismler[rastgeleSayı.Next(0, 9)];
+                kişi.yas = 10;
+                veriTabanıBaglnatı.JsonOlustur("Kişiler", kişi, kişi.isim);
+            }*/
+            
+            
+         Console.WriteLine(veriTabanıBaglnatı.ilkBulunanVeri(kisininİsmi => kisininİsmi.isim=="kerem", "kerem").id);
             zaman.Stop();
-            Console.WriteLine("zaman: " + zaman.Elapsed.Milliseconds);
+            Console.WriteLine("zaman: " + zaman.Elapsed.Milliseconds.ToString());
         }
     }
 }

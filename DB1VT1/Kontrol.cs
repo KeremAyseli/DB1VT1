@@ -27,5 +27,10 @@ namespace DB1VT1
             }
             return false;
         }
+        public void dosyaAdedi(string DosyaAdresi)
+        {
+          Console.WriteLine(Directory.GetFiles(@"G:\Visual\DB1VT1\DB1VT1\bin\Debug\netcoreapp3.11000-900").Length.ToString());
+
+        }
     }
 }
