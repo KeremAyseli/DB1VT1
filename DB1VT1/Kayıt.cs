@@ -73,7 +73,7 @@ namespace DB1VT1
         }
         string adresOlusturma(string girilecekVeri)
         {
-            return Environment.CurrentDirectory+ aralıkBulma(girilecekVeri, 100);
+            return Environment.CurrentDirectory+ aralıkBulma(girilecekVeri, 100)+@"\"+kelimeHarfSayısı(girilecekVeri).ToString()+"Harf"+@"\"+YerBulmaCarpma(girilecekVeri);
         }
 
         public string[] klasörOku(string yol)
@@ -108,6 +108,28 @@ namespace DB1VT1
             }
             return toplam_deger;
         }
+        public int YerBulmaCarpma(string deger)
+        {
+            char[] alfabe = { 'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z' };
+            int toplam_deger = 0;
+            char[] parca = deger.ToCharArray();
+            for (int i = 0; i < parca.Length; i++)
+            {
+                for (int x = 0; x < alfabe.Length; x++)
+                {
+                    if (parca[i].ToString() == alfabe[x].ToString())
+                    {
+                        toplam_deger += ((i * x) + 10)*(parca.Length*2);
+                    }
+                }
+
+            }
+            return toplam_deger;
+        }
+        public int kelimeHarfSayısı(string kelime) 
+        {
+            return kelime.Length;
+        }
         public string aralıkBulma(string girilencekVeri, int aralık)
         {
 
@@ -138,10 +160,19 @@ namespace DB1VT1
           if(!Directory.Exists(dosyaAdresi))
             {
                 Directory.CreateDirectory(dosyaAdresi);
+                
+            }
+            if (!Directory.Exists(dosyaAdresi + @"\" + kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf"))
+            {
+                Directory.CreateDirectory(dosyaAdresi + @"\" + kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf");
+            }
+            if (!Directory.Exists(dosyaAdresi + @"\" + kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf"+ @"\" + YerBulmaCarpma(AnahtarKelime).ToString()))
+            {
+                Directory.CreateDirectory(dosyaAdresi + @"\" + kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf"+@"\"+ YerBulmaCarpma(AnahtarKelime).ToString());
             }
             Console.WriteLine(Environment.CurrentDirectory + aralıkBulma(AnahtarKelime, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json" + " dosya konumu");
             Console.WriteLine(x.ToString() + " bu veriler");
-            StreamWriter yazma = new StreamWriter(dosyaAdresi+ @"\" + dosyaİsimOlusturma(Tablo) + ".json");
+            StreamWriter yazma = new StreamWriter(dosyaAdresi+@"\"+ kelimeHarfSayısı(AnahtarKelime).ToString()+"Harf"+@"\"+ YerBulmaCarpma(AnahtarKelime).ToString()+ @"\" + dosyaİsimOlusturma(Tablo) + ".json");
 
             string jsonDosya = JsonSerializer.Serialize<T>(Veri);
             yazma.WriteLine(jsonDosya);
