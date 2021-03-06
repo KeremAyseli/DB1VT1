@@ -119,7 +119,7 @@ namespace DB1VT1
                 {
                     if (parca[i].ToString() == alfabe[x].ToString())
                     {
-                        toplam_deger += ((i * x) + 10)*(parca.Length*2);
+                        toplam_deger += ((i * x) + (10*parca.Length))*(parca.Length*2);
                     }
                 }
 

@@ -8,32 +8,52 @@ namespace DB1VT1
      static  Random rastgeleSayı = new Random();
         static void Main(string[] args)
         {
-           /* string[] isimler = { "kerem", "melih", "alperen", "furkan", "enes", "abdullah", "ege", "emir", "umut", "fatih" ,"Acar",
-"Acun",
-"Afşa",
-"Adem",
-"Adil",
-"Adnan",
-"Affan","ayseli", "tarcan", "şimşek", "bişgin", "beslenti", "sönmez", "öztürk", "mataracı", "bektaş", "aslan","cemre","nagihan","gülce","rabia","ecem","eda"};
-         // string[] soyiismler = { "ayseli", "tarcan", "şimşek", "bişgin", "beslenti", "sönmez", "öztürk", "mataracı", "bektaş", "aslan" };*/
-            zaman.Start();
+            //Soyisimler listesi.
+            //Surname list.
+         string[] soyiismler = { "ayseli", "tarcan", "şimşek", "bişgin", "beslenti", "sönmez", "öztürk", "mataracı", "bektaş", "aslan" };
 
+            //İsimler metodundan gelen isimler listesi.
+            //The list of name from isimler method.
+            string[] isimlistesi = isimler();
+
+            //Veritabanı sınıfının tanımlanması.
+            //Defining the Database class.
             Kayıt<Kişiler> veriTabanıBaglnatı = new Kayıt<Kişiler>();
-            
-         /*  Kişiler kişi = new Kişiler();
-           for (int i = 0; i < 100000; i++)
+
+            //Tablo sınıfınımız.
+            //The table class.
+           Kişiler kişi = new Kişiler();
+
+           /*
+            * 100000 Adet yeni veri üretilmesi.
+            * 100000 new data are procuded.
+            */
+          for (int i = 0; i < 100000; i++)
             {
                 kişi.id = 3;
-                kişi.isim = isimler[rastgeleSayı.Next(0, 31)];
-                kişi.soyisim = soyiismler[rastgeleSayı.Next(0, 9)];
+                kişi.isim = isimlistesi[rastgeleSayı.Next(0, isimlistesi.Length)];
+                kişi.soyisim = soyiismler[rastgeleSayı.Next(0, soyiismler.Length)];
                 kişi.yas = 10;
                 veriTabanıBaglnatı.JsonOlustur("Kişiler", kişi, kişi.isim);
-            }*/
-            
-            
-        Console.WriteLine(veriTabanıBaglnatı.ilkBulunanVeri(kisininİsmi => kisininİsmi.isim=="kerem", "kerem").id);
+            }
+        zaman.Start();  
+            //Veri aranması için kullanılan ilkBulunanVeri metodu.Bir linq ve anahtar kelime parametreleriyle çalışıyor.
+            //The ilkbulunanVeri method used to search data.It works with a linq and keyword parameters.
+        Console.WriteLine(veriTabanıBaglnatı.ilkBulunanVeri(kisininİsmi => kisininİsmi.isim== "Joanna Daniel\r", "Joanna Daniel\r").id);
             zaman.Stop();
             Console.WriteLine("zaman: " + zaman.Elapsed.Milliseconds.ToString());
+        }
+
+
+        /// <summary>
+        /// isimler listesini okuyan metot.
+        /// The method that reads the list of names.
+        /// </summary>
+        /// <returns></returns>
+        static string[] isimler()
+        {  
+         string isimlerListesi= System.IO.File.ReadAllText("isimler.txt");
+          return isimlerListesi.Split(" ");
         }
     }
 }
