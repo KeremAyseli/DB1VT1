@@ -13,6 +13,11 @@ DB1VT1 veritabanı yapısı şu anlık json dosyalar üzerinden çalışan bir a
 |m | e| r| h| a| b| a| =710(Merhaba kelimesinin değeri)|
 
 Yukarıda bulunan değeri yine kendi belirlediğimiz aralıkta olan klasörlerin arasına yerleştiriyoruz,ben 100 puanlık klasör aralıkları belirlediğim için bu veri 700 ile 800 klasörüne kaydedilecek.
+İkinci klasörleme ise harf sayısına göre yapılıyor,bu duruma göre merhaba 7harfliler klasörüne gidecek.
+Üçüncü klasörleme ise şu daha kapsamlı şu formüle göre yapılıyor:
+### i=harfin olduğu konum
+### x=harfin alfabede olduğu konum
+### Formül= ((i * x) + (10*kelime.Length))*(kelim.Length*2)
 
 # **Kullanımı**
 Öncellikle bir tablo yapısı oluşturuyoruz,oluşturduğumuz tablo yapısıyla bir Kayıt sınıfı tanımlıyoruz.
