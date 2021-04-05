@@ -17,7 +17,7 @@ Yukarıda bulunan değeri yine kendi belirlediğimiz aralıkta olan klasörlerin
 Üçüncü klasörleme ise şu daha kapsamlı şu formüle göre yapılıyor:
 ### i=harfin olduğu konum
 ### x=harfin alfabede olduğu konum
-### Formül= ((i * x) + (10*kelime.Length))*(kelim.Length*2)
+### Formül= ((i * x) + (10*kelime.Length)) * (kelim.Length*2)
 
 # **Kullanımı**
 Öncellikle bir tablo yapısı oluşturuyoruz,oluşturduğumuz tablo yapısıyla bir Kayıt sınıfı tanımlıyoruz.
