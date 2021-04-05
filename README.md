@@ -77,7 +77,11 @@ The DB1VT1 data connection currently has a search structure running over json fi
 |h | e| l| l| o|  =690(It's value of hello)|
 
 We place the above value between the folders that are in the range we have determined, since I have specified the 100-point folder ranges, this data will be saved in the 600 and 700 folders.
-
+The second folder is done according to the attachment, according to this situation, it will go to the Hello 7 letters folder.
+The third folder is done according to the following more comprehensive formula:
+### i = position of the letter
+### x = position where the letter is in the alphabet
+### Formula = ((i * x) + (10 * word.Length)) * (word.Length * 2)
 # **How To Use**
 First we need a table class like person etc.
 
