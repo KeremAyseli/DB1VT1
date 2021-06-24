@@ -8,19 +8,24 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\aysel\\.nuget\\packages\\": {}
+    "C:\\Users\\aysel\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Visual\\DB1VT1\\DB1VT1\\DB1VT1.csproj",
+      "projectUniqueName": "D:\\Visual\\DB1VT1\\DB1VT1\\DB1VT1.csproj",
       "projectName": "DB1VT1",
-      "projectPath": "G:\\Visual\\DB1VT1\\DB1VT1\\DB1VT1.csproj",
+      "projectPath": "D:\\Visual\\DB1VT1\\DB1VT1\\DB1VT1.csproj",
       "packagesPath": "C:\\Users\\aysel\\.nuget\\packages\\",
-      "outputPath": "G:\\Visual\\DB1VT1\\DB1VT1\\obj\\",
+      "outputPath": "D:\\Visual\\DB1VT1\\DB1VT1\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\aysel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

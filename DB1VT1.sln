@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB1VT1", "DB1VT1\DB1VT1.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sunucu", "..\Sunucu\Sunucu\Sunucu.csproj", "{C2ADE6D2-A942-4FC4-881C-41789583E1F4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB1VT1Test", "TestProject\DB1VT1Test.csproj", "{2D9AE570-94A8-4C87-B524-4F4D470479A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C2ADE6D2-A942-4FC4-881C-41789583E1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2ADE6D2-A942-4FC4-881C-41789583E1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2ADE6D2-A942-4FC4-881C-41789583E1F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D9AE570-94A8-4C87-B524-4F4D470479A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D9AE570-94A8-4C87-B524-4F4D470479A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D9AE570-94A8-4C87-B524-4F4D470479A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D9AE570-94A8-4C87-B524-4F4D470479A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
