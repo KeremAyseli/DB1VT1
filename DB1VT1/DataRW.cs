@@ -5,12 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
+
 namespace DB1VT1
 {
-    class DataRead<T>:IDataRead<T>
+    class DataRW<T>:IDataRead<T>,IDataWrite<T>
     {
-        public List<T> jsonOkuListİle(string aranacakVeri)
+        #region IDataWrite<T>
+        public void dataWrite(string Tablo, T Veri, string AnahtarKelime)
         {
+            StreamWriter yazma = new StreamWriter(dosyaAdresi + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf" + @"\" + wordHandler.YerBulmaCarpma(AnahtarKelime).ToString() + @"\" + dosyaİsimOlusturma(Tablo) + ".json");
+
+            string jsonDosya = JsonSerializer.Serialize<T>(Veri);
+            yazma.WriteLine(jsonDosya);
+            yazma.Close();
+        }
+        #endregion IDataWrite<T>
+        #region IDataRead<T>
+       public List<T> jsonOkuListİle(string aranacakVeri) {
             string[] adresler = klasörOku(AdressBuilder.adresOlusturma(aranacakVeri));
             List<T> liste = new List<T>();
             string json;
@@ -24,8 +35,7 @@ namespace DB1VT1
             }
             return liste;
         }
-        public string[] klasörOku(string yol)
-        {
+       public string[] klasörOku(string yol) {
             try
             {
                 string[] dosyalar = Directory.GetFiles(yol);
@@ -36,19 +46,8 @@ namespace DB1VT1
                 return null;
             }
         }
-        public T[] jsonOku(string aranacakVeri)
-        {
-            string[] adresler = klasörOku(AdressBuilder.adresOlusturma(aranacakVeri));
-            T[] liste = new T[adresler.Length];
-            string json;
-            for (int i = 0; i < liste.Length; i++)
-            {
-                Console.WriteLine("Gelen adresler: " + adresler[i]);
-                StreamReader okuma = new StreamReader(adresler[i].ToString());
-                json = okuma.ReadToEnd();
-                liste[i] = JsonSerializer.Deserialize<T>(json);
-            }
-            return liste;
-        }
+        public T[] jsonOku(string aranacakVeri) {
+            return new T[0]; }
     }
+    #endregion IDataRead<T>
 }

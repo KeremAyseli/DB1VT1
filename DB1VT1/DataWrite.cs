@@ -8,12 +8,10 @@ using System.Text.Json;
 
 namespace DB1VT1
 {
-    class DataWrite<T>
+    class DataWrite<T>:IDataWrite<T>
     {
-        public DataWrite(string Tablo, T Veri, string AnahtarKelime)
+        public void dataWrite(string Tablo, T Veri, string AnahtarKelime)
         {
-            
-
             StreamWriter yazma = new StreamWriter(dosyaAdresi + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf" + @"\" + wordHandler.YerBulmaCarpma(AnahtarKelime).ToString() + @"\" + dosyaİsimOlusturma(Tablo) + ".json");
 
             string jsonDosya = JsonSerializer.Serialize<T>(Veri);
