@@ -4,7 +4,7 @@
 
 
 # **DB1VT1 TR** <a id='tr'></a>
-DB1VT1 veritabanı yapısı şu anlık json dosyalar üzerinden çalışan bir arama yapısına sahip. Genel olarak arama algoritması şu şekilde çalışıyor; girilen anahtar kelime ilk önce harflerine bölünüyor ve her bir harfe konumuna göre puan veriliyor ve , verilen bu puanlar toplanınca anahtar kelimenin toplam puanı oluşuyor, oluşan bu puana göre bilgilerin kaydedileceği dosya aralığı belli oluyor. Bunu göreselleştirmek gerekirse:
+DB1VT1 veritabanı yapısı şu anlık json dosyalar üzerinden çalışan bir arama yapısına sahip. Genel olarak arama algoritması şu şekilde çalışıyor; girilen anahtar kelime ilk önce harflerine bölünüyor ve her bir harfe konumuna göre puan veriliyor ve verilen bu puanlar toplanınca anahtar kelimenin toplam puanı oluşuyor, oluşan bu puana göre bilgilerin kaydedileceği dosya aralığı belli oluyor. Bunu göreselleştirmek gerekirse:
 ### i=harfin olduğu konum
 ### x=harfin alfabede olduğu konum
 ### Formül= (i+x)*10 
@@ -13,6 +13,11 @@ DB1VT1 veritabanı yapısı şu anlık json dosyalar üzerinden çalışan bir a
 |m | e| r| h| a| b| a| =710(Merhaba kelimesinin değeri)|
 
 Yukarıda bulunan değeri yine kendi belirlediğimiz aralıkta olan klasörlerin arasına yerleştiriyoruz,ben 100 puanlık klasör aralıkları belirlediğim için bu veri 700 ile 800 klasörüne kaydedilecek.
+İkinci klasörleme ise harf sayısına göre yapılıyor,bu duruma göre merhaba 7harfliler klasörüne gidecek.
+Üçüncü klasörleme ise şu daha kapsamlı şu formüle göre yapılıyor:
+### i=harfin olduğu konum
+### x=harfin alfabede olduğu konum
+### Formül= ((i * x) + (10 * kelime.Length)) * (kelim.Length * 2)
 
 # **Kullanımı**
 Öncellikle bir tablo yapısı oluşturuyoruz,oluşturduğumuz tablo yapısıyla bir Kayıt sınıfı tanımlıyoruz.
@@ -72,7 +77,11 @@ The DB1VT1 data connection currently has a search structure running over json fi
 |h | e| l| l| o|  =690(It's value of hello)|
 
 We place the above value between the folders that are in the range we have determined, since I have specified the 100-point folder ranges, this data will be saved in the 600 and 700 folders.
-
+The second folder is done according to the attachment, according to this situation, it will go to the Hello 7 letters folder.
+The third folder is done according to the following more comprehensive formula:
+### i = position of the letter
+### x = position where the letter is in the alphabet
+### Formula = ((i * x) + (10 * word.Length)) * (word.Length * 2)
 # **How To Use**
 First we need a table class like person etc.
 
