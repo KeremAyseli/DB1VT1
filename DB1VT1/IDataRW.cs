@@ -11,7 +11,7 @@ namespace DB1VT1
     {
         List<T> jsonOkuListİle(string aranacakVeri);
         string[] klasörOku(string yol);
-        public T[] jsonOku(string aranacakVeri);        
+        public T[] jsonOku(string aranacakVeri);       
     }
     interface IDataWrite<T>
     {

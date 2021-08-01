@@ -8,9 +8,10 @@ namespace DB1VT1
 {
     static class AdressBuilder
     {
-        public static string adresOlusturma(string girilecekVeri)
+        public static string adressGenerator(string girilecekVeri)
         {
-            return Environment.CurrentDirectory + aralıkBulma(girilecekVeri, 100) + @"\" + kelimeHarfSayısı(girilecekVeri).ToString() + "Harf" + @"\" + YerBulmaCarpma(girilecekVeri);
+            WordHandler wordHandler = new WordHandler();
+            return Environment.CurrentDirectory + wordHandler.aralıkBulma(girilecekVeri, 100) + @"\" +wordHandler.kelimeHarfSayısı(girilecekVeri).ToString() + "Harf" + @"\" + wordHandler.YerBulmaCarpma(girilecekVeri);
         }
     }
 }

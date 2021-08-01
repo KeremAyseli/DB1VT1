@@ -10,38 +10,15 @@ namespace DB1VT1
 {
     public class InsertData<T>
     {
-        
-        
-        IQueryable<T> aranan;
+ 
         private List<T> AnlıkVeriler;
-        
-       
-        
-       
-        public T ilkBulunanVeri(Expression<Func<T,bool>>ArananVeriler,string anahtarKelime)
+ 
+        public void Insert(string TabloAdi,string anahtarKelime)
         {
-            List<T> BulunanDegerler = jsonOkuListİle(anahtarKelime);
-            aranan = BulunanDegerler.AsQueryable();
-           return aranan.Where(ArananVeriler).FirstOrDefault();
-        }
-        public List<T> BulunanTumVeriler(Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
-        {
-            List<T> BulunanDegerler = jsonOkuListİle(anahtarKelime);
-            aranan = BulunanDegerler.AsQueryable();
-            return aranan.Where(ArananVeriler).ToList();
-        }
-        public void Guncelle(Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
-        {
-            List<T> BulunanDegerler = jsonOkuListİle(anahtarKelime);
-            aranan = BulunanDegerler.AsQueryable();
-            AnlıkVeriler= aranan.Where(ArananVeriler).ToList();
-            
-        }
-        public void Kaydet(string TabloAdi,string anahtarKelime)
-        {
+            DataWrite<T> dataWrite = new DataWrite<T>();
             for (int i = 0; i < AnlıkVeriler.Count; i++)
             {
-                JsonOlustur(TabloAdi, AnlıkVeriler[i], anahtarKelime);
+                dataWrite.dataWrite(TabloAdi, AnlıkVeriler[i], anahtarKelime);
             }
         }
        

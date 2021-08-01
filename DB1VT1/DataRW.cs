@@ -10,10 +10,11 @@ namespace DB1VT1
 {
     class DataRW<T>:IDataRead<T>,IDataWrite<T>
     {
+        WordHandler wordHandler = new WordHandler();
         #region IDataWrite<T>
         public void dataWrite(string Tablo, T Veri, string AnahtarKelime)
         {
-            StreamWriter yazma = new StreamWriter(dosyaAdresi + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf" + @"\" + wordHandler.YerBulmaCarpma(AnahtarKelime).ToString() + @"\" + dosyaİsimOlusturma(Tablo) + ".json");
+            StreamWriter yazma = new StreamWriter(AdressBuilder.adressGenerator(AnahtarKelime));
 
             string jsonDosya = JsonSerializer.Serialize<T>(Veri);
             yazma.WriteLine(jsonDosya);
@@ -21,8 +22,8 @@ namespace DB1VT1
         }
         #endregion IDataWrite<T>
         #region IDataRead<T>
-       public List<T> jsonOkuListİle(string aranacakVeri) {
-            string[] adresler = klasörOku(AdressBuilder.adresOlusturma(aranacakVeri));
+        public List<T> jsonOkuListİle(string aranacakVeri) {
+            string[] adresler = klasörOku(AdressBuilder.adressGenerator(aranacakVeri));
             List<T> liste = new List<T>();
             string json;
 
@@ -46,8 +47,10 @@ namespace DB1VT1
                 return null;
             }
         }
-        public T[] jsonOku(string aranacakVeri) {
-            return new T[0]; }
+        public T[] jsonOku(string aranacakVeri)
+        {
+            return new T[0]; 
+        }
     }
     #endregion IDataRead<T>
 }

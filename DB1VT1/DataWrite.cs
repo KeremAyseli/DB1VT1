@@ -8,13 +8,15 @@ using System.Text.Json;
 
 namespace DB1VT1
 {
-    class DataWrite<T>:IDataWrite<T>
+    class DataWrite<T>
     {
+        WordHandler wordHandler = new WordHandler();
         public void dataWrite(string Tablo, T Veri, string AnahtarKelime)
         {
-            StreamWriter yazma = new StreamWriter(dosyaAdresi + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf" + @"\" + wordHandler.YerBulmaCarpma(AnahtarKelime).ToString() + @"\" + dosyaİsimOlusturma(Tablo) + ".json");
+            StreamWriter yazma = new StreamWriter(AdressBuilder.adressGenerator(AnahtarKelime));
 
             string jsonDosya = JsonSerializer.Serialize<T>(Veri);
+            
             yazma.WriteLine(jsonDosya);
             yazma.Close();
         }

@@ -12,21 +12,22 @@ namespace DB1VT1
     {
         FolderController kontrolEtme = new FolderController();
         WordHandler wordHandler = new WordHandler();
+        
         public void JsonOlustur(string Tablo, T Veri, string AnahtarKelime)
         {
-            string dosyaAdresi = Environment.CurrentDirectory + wordHandler.aralıkBulma(AnahtarKelime, 100);
+            string fileAdress = AdressBuilder.adressGenerator(AnahtarKelime);
             int x = wordHandler.YerBulma(AnahtarKelime);
-            if (!Directory.Exists(dosyaAdresi))
+            if (!Directory.Exists(fileAdress))
             {
-                Directory.CreateDirectory(dosyaAdresi);
+                Directory.CreateDirectory(fileAdress);
             }
-            if (!Directory.Exists(dosyaAdresi + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf"))
+            if (!Directory.Exists(fileAdress + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf"))
             {
-                Directory.CreateDirectory(dosyaAdresi + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf");
+                Directory.CreateDirectory(fileAdress + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf");
             }
-            if (!Directory.Exists(dosyaAdresi + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf" + @"\" + wordHandler.YerBulmaCarpma(AnahtarKelime).ToString()))
+            if (!Directory.Exists(fileAdress + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf" + @"\" + wordHandler.YerBulmaCarpma(AnahtarKelime).ToString()))
             {
-                Directory.CreateDirectory(dosyaAdresi + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf" + @"\" + wordHandler.YerBulmaCarpma(AnahtarKelime).ToString());
+                Directory.CreateDirectory(fileAdress + @"\" + wordHandler.kelimeHarfSayısı(AnahtarKelime).ToString() + "Harf" + @"\" + wordHandler.YerBulmaCarpma(AnahtarKelime).ToString());
             }
             Console.WriteLine(Environment.CurrentDirectory + wordHandler.aralıkBulma(AnahtarKelime, 100) + @"\" + dosyaİsimOlusturma(Tablo) + ".json" + " dosya konumu");
             Console.WriteLine(x.ToString() + " bu veriler");
