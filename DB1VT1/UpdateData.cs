@@ -11,10 +11,10 @@ namespace DB1VT1
     {
         private List<T> AnlıkVeriler;
         IQueryable<T> aranan;
-        public void update(Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
+        public void update(string tableName,Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
         {
             DataRead<T> dataRead = new DataRead<T>();
-            List<T> BulunanDegerler = dataRead.ReadJsonWithList(anahtarKelime);
+            List<T> BulunanDegerler = dataRead.ReadJsonWithList(tableName,anahtarKelime);
             aranan = BulunanDegerler.AsQueryable();
             AnlıkVeriler = aranan.Where(ArananVeriler).ToList();
 

@@ -30,7 +30,7 @@ namespace DB1VT1
             * 100000 new data are procuded.
             */
             zaman.Start();  
-      /*  for(int i = 0; i < 100000; i++) {
+        /*for(int i = 0; i < 100000; i++) {
                 kişi.id = 3;
                 kişi.isim = isimlistesi[rastgeleSayı.Next(0, isimlistesi.Length)];
                 kişi.soyisim = soyiismler[rastgeleSayı.Next(0, soyiismler.Length)];
@@ -38,13 +38,13 @@ namespace DB1VT1
                 dataRW.dataWrite("Kişiler", kişi, kişi.isim);
             }*/
                 
-          // Console.WriteLine( dataRW.jsonOkuListİle("Read\r\nAmeera")[0].isim);
+           //Console.WriteLine( dataRW.jsonOkuListİle("Read\r\nAmeera")[0].isim);
             
            
             Console.WriteLine(zaman.ElapsedMilliseconds);
             //Veri aranması için kullanılan ilkBulunanVeri metodu.Bir linq ve anahtar kelime parametreleriyle çalışıyor.
             //The ilkbulunanVeri method used to search data.It works with a linq and keyword parameters.
-             Console.WriteLine(dataRW.ilkBulunanVeri(kisininİsmi => kisininİsmi.isim== "Andrews\r\nSafiyah", "Andrews\r\nSafiyah").id);
+             Console.WriteLine(dataRW.ilkBulunanVeri("Kişiler",kisininİsmi => kisininİsmi.isim== "Andrews\r\nSafiyah", "Andrews\r\nSafiyah").id);
  zaman.Stop();
                  Console.WriteLine("zaman: " + zaman.Elapsed.Milliseconds.ToString());
         }

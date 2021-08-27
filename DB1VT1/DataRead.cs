@@ -12,9 +12,9 @@ namespace DB1VT1
     class DataRead<T>
     {
         IQueryable<T> aranan;
-        public List<T> ReadJsonWithList(string aranacakVeri)
+        public List<T> ReadJsonWithList(string tableName,string aranacakVeri)
         {
-            string[] adresler = klasörOku(AdressBuilder.adressGenerator(aranacakVeri));
+            string[] adresler = klasörOku(AdressBuilder.adressGenerator(tableName,aranacakVeri));
             List<T> liste = new List<T>();
             string json;
             try
@@ -46,9 +46,9 @@ namespace DB1VT1
                 return null;
             }
         }
-        public T[] jsonOku(string aranacakVeri)
+        public T[] jsonOku(string tableName,string aranacakVeri)
         {
-            string[] adresler = klasörOku(AdressBuilder.adressGenerator(aranacakVeri));
+            string[] adresler = klasörOku(AdressBuilder.adressGenerator(tableName,aranacakVeri));
             T[] liste = new T[adresler.Length];
             string json;
             for (int i = 0; i < liste.Length; i++)
@@ -61,15 +61,15 @@ namespace DB1VT1
             return liste;
         }
          
-        public T ilkBulunanVeri(Expression<Func<T,bool>>ArananVeriler,string anahtarKelime)
+        public T ilkBulunanVeri(string tableName,Expression<Func<T,bool>>ArananVeriler,string anahtarKelime)
         {
-            List<T> BulunanDegerler = ReadJsonWithList(anahtarKelime);
+            List<T> BulunanDegerler = ReadJsonWithList(tableName,anahtarKelime);
             aranan = BulunanDegerler.AsQueryable();
            return aranan.Where(ArananVeriler).FirstOrDefault();
         }
-        public List<T> BulunanTumVeriler(Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
+        public List<T> BulunanTumVeriler(string tableName,Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
         {
-            List<T> BulunanDegerler = ReadJsonWithList(anahtarKelime);
+            List<T> BulunanDegerler = ReadJsonWithList(tableName,anahtarKelime);
             aranan = BulunanDegerler.AsQueryable();
             return aranan.Where(ArananVeriler).ToList();
         }

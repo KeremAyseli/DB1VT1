@@ -11,9 +11,9 @@ namespace DB1VT1
     class DataWrite<T>
     {
         WordHandler wordHandler = new WordHandler();
-        public void dataWrite(string Tablo, T Veri, string AnahtarKelime)
+        public void dataWrite(string tableName, T Veri, string AnahtarKelime)
         {
-            StreamWriter yazma = new StreamWriter(AdressBuilder.adressGenerator(AnahtarKelime));
+            StreamWriter yazma = new StreamWriter(AdressBuilder.adressGenerator(tableName,AnahtarKelime));
 
             string jsonDosya = JsonSerializer.Serialize<T>(Veri);
             

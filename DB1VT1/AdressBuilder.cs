@@ -9,16 +9,15 @@ namespace DB1VT1
 {
     static class AdressBuilder
     {
-        public static string adressGenerator(string girilecekVeri)
+        public static string adressGenerator(string tableName,string data)
         {
             WordHandler wordHandler = new WordHandler();
-            string firstDirectory = wordHandler.aralıkBulma(girilecekVeri, 100),secondDirectory= wordHandler.kelimeHarfSayısı(girilecekVeri).ToString(),trhirdDirectory= wordHandler.YerBulmaCarpma(girilecekVeri).ToString();
-            
-            string path= Environment.CurrentDirectory + firstDirectory + @"\" + secondDirectory + "Harf" + @"\" +trhirdDirectory ;
-            string firstFolder = Environment.CurrentDirectory + firstDirectory,
-                secondFolder= Environment.CurrentDirectory + firstDirectory + @"\" + secondDirectory + "Harf",
-                thirdFolder= Environment.CurrentDirectory + firstDirectory + @"\" + secondDirectory + "Harf" + @"\" + trhirdDirectory;
-            if (FolderController(firstFolder,secondFolder,thirdFolder))
+            string firstDirectory = wordHandler.aralıkBulma(data, 100),secondDirectory= wordHandler.kelimeHarfSayısı(data).ToString(),trhirdDirectory= wordHandler.YerBulmaCarpma(data).ToString();
+            string path= Environment.CurrentDirectory + @"\Table\" + tableName + @"\" + firstDirectory + @"\" + secondDirectory + "Harf" + @"\" +trhirdDirectory;
+            string firstFolder = Environment.CurrentDirectory+ @"\Table\" + tableName + @"\" + firstDirectory,
+                secondFolder= Environment.CurrentDirectory + @"\Table\" + tableName + @"\" + firstDirectory + @"\" + secondDirectory + "Harf",
+                thirdFolder= Environment.CurrentDirectory + @"\Table\"+tableName+@"\"+ firstDirectory + @"\" + secondDirectory + "Harf" + @"\" + trhirdDirectory;
+            if (FolderController(tableName,firstFolder,secondFolder,thirdFolder))
             {
                 return path;
             }

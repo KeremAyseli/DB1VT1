@@ -13,15 +13,15 @@ namespace DB1VT1
         FolderController kontrolEtme = new FolderController();
         WordHandler wordHandler = new WordHandler();
         
-       public string NewFile(string Tablo, T Veri, string AnahtarKelime)
+       public string NewFile(string tableName, T dataType, string keyWord)
         {
-            string fileAdress = AdressBuilder.adressGenerator(AnahtarKelime)+@"\" + dosyaİsimOlusturma(Tablo) + ".json";
-            int x = wordHandler.YerBulma(AnahtarKelime);
+            string fileAdress = AdressBuilder.adressGenerator(tableName,keyWord)+@"\" + FileNameGenerator(tableName) + ".json";
+            int x = wordHandler.YerBulma(keyWord);
 
             return fileAdress;
             
         }
-        public string dosyaİsimOlusturma(string Adres)
+        public string FileNameGenerator(string Adres)
         {
             Random rnd = new Random();
             int x = (rnd.Next(1000) / 20) * 19;
@@ -32,7 +32,7 @@ namespace DB1VT1
             }
             else
             {
-                dosyaİsimOlusturma(Adres);
+                FileNameGenerator(Adres);
             }
             return "boş";
         }
