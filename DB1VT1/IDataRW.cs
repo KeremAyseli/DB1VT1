@@ -9,9 +9,9 @@ namespace DB1VT1
 {
     interface IDataRead<T>
     {
-        List<T> jsonOkuListİle(string aranacakVeri);
+        List<T> ReadJsonWithList(string aranacakVeri);
         string[] klasörOku(string yol);
-        public T[] jsonOku(string aranacakVeri);       
+        public T[] ReadData(string aranacakVeri);       
     }
     interface IDataWrite<T>
     {

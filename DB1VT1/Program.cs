@@ -19,8 +19,8 @@ namespace DB1VT1
             //Veritabanı sınıfının tanımlanması.
             //Defining the Database class.
             InsertData<Kişiler> insert = new InsertData<Kişiler>();
+            FileBuilder<Kişiler> file = new FileBuilder<Kişiler>();
             DataRW<Kişiler> dataRW = new DataRW<Kişiler>();
-
             //Tablo sınıfınımız.
             //The table class.
            Kişiler kişi = new Kişiler();
@@ -30,21 +30,23 @@ namespace DB1VT1
             * 100000 new data are procuded.
             */
             zaman.Start();  
-         for (int i = 0; i < 100000; i++)
-            {
+      /*  for(int i = 0; i < 100000; i++) {
                 kişi.id = 3;
                 kişi.isim = isimlistesi[rastgeleSayı.Next(0, isimlistesi.Length)];
                 kişi.soyisim = soyiismler[rastgeleSayı.Next(0, soyiismler.Length)];
                 kişi.yas = 10;
                 dataRW.dataWrite("Kişiler", kişi, kişi.isim);
-            } 
-            zaman.Stop();
-        
+            }*/
+                
+          // Console.WriteLine( dataRW.jsonOkuListİle("Read\r\nAmeera")[0].isim);
+            
+           
+            Console.WriteLine(zaman.ElapsedMilliseconds);
             //Veri aranması için kullanılan ilkBulunanVeri metodu.Bir linq ve anahtar kelime parametreleriyle çalışıyor.
             //The ilkbulunanVeri method used to search data.It works with a linq and keyword parameters.
-       /* Console.WriteLine(dataRW.ilkBulunanVeri(kisininİsmi => kisininİsmi.isim== "Andrews\r\nSafiyah", "Andrews\r\nSafiyah").id);
-           
-            Console.WriteLine("zaman: " + zaman.Elapsed.Milliseconds.ToString());*/
+             Console.WriteLine(dataRW.ilkBulunanVeri(kisininİsmi => kisininİsmi.isim== "Andrews\r\nSafiyah", "Andrews\r\nSafiyah").id);
+ zaman.Stop();
+                 Console.WriteLine("zaman: " + zaman.Elapsed.Milliseconds.ToString());
         }
 
 
