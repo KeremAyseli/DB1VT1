@@ -1,2 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DB1VT1.AdressBuilder">
+    <Position X="2.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AdressBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.DataRead&lt;T&gt;">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAABQAEAAAAAAAQAAAACAAA=</HashCode>
+      <FileName>DataRead.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.DataRW&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAABAAAAAAAAAAABQAEAEAAAAAQAAAAAAAA=</HashCode>
+      <FileName>DataRW.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DB1VT1.DataWrite&lt;T&gt;">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataWrite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.DosyaIcerikleri">
+    <Position X="2.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DosyaIcerikleri.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.FileBuilder&lt;T&gt;">
+    <Position X="4.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>FileBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.FolderController">
+    <Position X="6" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FolderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.ID">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ID.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.InsertData&lt;T&gt;">
+    <Position X="2.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>InsertData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.Kişiler">
+    <Position X="4.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAIACAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Kişiler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.Program">
+    <Position X="6" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAAgBAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.Tablo&lt;T&gt;">
+    <Position X="7.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tablo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.testMain">
+    <Position X="2.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>testMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.UpdateData&lt;T&gt;">
+    <Position X="4.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAEAgA=</HashCode>
+      <FileName>UpdateData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DB1VT1.WordHandler">
+    <Position X="6" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAACAAAAAAAAAACAAAAAAAACAAAAAIAQAAAA=</HashCode>
+      <FileName>WordHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DB1VT1.IDataRead&lt;T&gt;">
+    <Position X="2.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAQAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>IDataRW.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DB1VT1.IDataWrite&lt;T&gt;">
+    <Position X="4.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDataRW.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
