@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "PawQuerry/1.0.0": {
+        "runtime": {
+          "PawQuerry.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PawQuerry/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

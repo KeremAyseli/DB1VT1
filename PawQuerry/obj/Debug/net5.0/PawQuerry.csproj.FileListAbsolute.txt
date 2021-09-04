@@ -1,0 +1,16 @@
+D:\Visual\DB1VT1\PawQuerry\bin\Debug\net5.0\PawQuerry.exe
+D:\Visual\DB1VT1\PawQuerry\bin\Debug\net5.0\PawQuerry.deps.json
+D:\Visual\DB1VT1\PawQuerry\bin\Debug\net5.0\PawQuerry.runtimeconfig.json
+D:\Visual\DB1VT1\PawQuerry\bin\Debug\net5.0\PawQuerry.runtimeconfig.dev.json
+D:\Visual\DB1VT1\PawQuerry\bin\Debug\net5.0\PawQuerry.dll
+D:\Visual\DB1VT1\PawQuerry\bin\Debug\net5.0\ref\PawQuerry.dll
+D:\Visual\DB1VT1\PawQuerry\bin\Debug\net5.0\PawQuerry.pdb
+D:\Visual\DB1VT1\PawQuerry\obj\Debug\net5.0\PawQuerry.csproj.AssemblyReference.cache
+D:\Visual\DB1VT1\PawQuerry\obj\Debug\net5.0\PawQuerry.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual\DB1VT1\PawQuerry\obj\Debug\net5.0\PawQuerry.AssemblyInfoInputs.cache
+D:\Visual\DB1VT1\PawQuerry\obj\Debug\net5.0\PawQuerry.AssemblyInfo.cs
+D:\Visual\DB1VT1\PawQuerry\obj\Debug\net5.0\PawQuerry.csproj.CoreCompileInputs.cache
+D:\Visual\DB1VT1\PawQuerry\obj\Debug\net5.0\PawQuerry.dll
+D:\Visual\DB1VT1\PawQuerry\obj\Debug\net5.0\ref\PawQuerry.dll
+D:\Visual\DB1VT1\PawQuerry\obj\Debug\net5.0\PawQuerry.pdb
+D:\Visual\DB1VT1\PawQuerry\obj\Debug\net5.0\PawQuerry.genruntimeconfig.cache
