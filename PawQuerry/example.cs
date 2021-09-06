@@ -8,7 +8,13 @@ namespace PawQuerry
 {
     class example:Querry<example>
     {
-        public int id;
+        public example(int id,string isim,string soyisim)
+        {
+            this.id = id;
+            this.isim = isim;
+            this.soyisim = soyisim;
+        }
+        public int id { get; set; }
         public string isim { get; set; }
         public string soyisim { get; set; }
 

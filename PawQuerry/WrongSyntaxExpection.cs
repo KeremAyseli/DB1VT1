@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace PawQuerry
 {
-    class JsonParser
+    class WrongSyntaxExpection:Exception
     {
+        public WrongSyntaxExpection(string message) : base(message) { }
+
     }
 }
