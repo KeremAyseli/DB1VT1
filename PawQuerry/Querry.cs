@@ -14,6 +14,7 @@ namespace PawQuerry
         private System.Reflection.MemberInfo[] classPropName, classVarriables;
         private JsonManager jm = new JsonManager();
         Condition conditions = new Condition();
+        public string conditionsSelectedColumnValue { get; set; }
         public Querry()
         {
             classPropName = getProperties();
@@ -43,10 +44,9 @@ namespace PawQuerry
                 Console.WriteLine(ex.Message);
             }
         }
-        public string Select(string columnName,string conditionColumn,string conditionvalue, string condition)
+        public string Select(string columnName, string conditionColumn, string conditionvalue, string condition)
         {
             Hashtable data = jm.readJson("deneme");
-
             try
             {
                 for (int i = 0; i < classPropName.Length; i++)
@@ -54,8 +54,8 @@ namespace PawQuerry
                     if (classPropName[i].Name == columnName)
                     {
                         Console.WriteLine(conditions.conditions(data[conditionColumn].ToString(), conditionvalue, condition));
-                        if(conditions.conditions(data[conditionColumn].ToString(), conditionvalue,condition))
-                           return data[classPropName[i].Name].ToString();
+                        if (conditions.conditions(data[conditionColumn].ToString(), conditionvalue, condition))
+                            return data[classPropName[i].Name].ToString();
                     }
                 }
             }
@@ -65,7 +65,27 @@ namespace PawQuerry
             }
             return null;
         }
-
+        public string Select(string columnName, string conditionColumn, Func<bool> lambda)
+        {
+            Hashtable data = jm.readJson("deneme");
+            try
+            {
+                for (int i = 0; i < classPropName.Length; i++)
+                {
+                    if (classPropName[i].Name == columnName)
+                    {
+                        conditionsSelectedColumnValue = data[conditionColumn].ToString();
+                        if (lambda())
+                            return data[classPropName[i].Name].ToString();
+                    }
+                }
+            }
+            catch (WrongSyntaxExpection ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
 
     }
 }

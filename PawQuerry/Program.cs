@@ -9,7 +9,10 @@ namespace PawQuerry
         static void Main(string[] args)
         {
             example a = new example(1, "kerem", "ayseli");
-            Console.WriteLine(a.Select("isim", "soyisim", "soyisim", "!="));
+            //Console.WriteLine(a.Select("isim", "soyisim", "soyisim", "!="));
+            
+            Console.Write(a.Select("isim","soyisim",()=>a.conditionsSelectedColumnValue=="soyisim"));
         }
+        
     }
 }
