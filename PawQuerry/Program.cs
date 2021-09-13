@@ -8,8 +8,8 @@ namespace PawQuerry
     {
         static void Main(string[] args)
         {
-            example a = new example(1,"kerem","ayseli");
-            a.update("isim", "denemeYeniDeğer");
+            example a = new example(1, "kerem", "ayseli");
+            Console.WriteLine(a.Select("isim", "soyisim", "soyisim", "!="));
         }
     }
 }

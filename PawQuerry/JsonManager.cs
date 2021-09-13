@@ -12,7 +12,7 @@ using System.Text.Json.Serialization;
 namespace PawQuerry
 {
     
-    class JsonManager<T>
+    class JsonManager
     {
         
         public Hashtable readJson(string path)
@@ -28,9 +28,9 @@ namespace PawQuerry
             
             return jsonWithKeyAndValue;
         }
-        public void WriteJson(string path, T data)
+        public void WriteJson(string path, string data)
         {
-            new StreamWriter(path).WriteLine(JsonSerializer.Serialize(data));
+            File.WriteAllText(path,JsonSerializer.Serialize(data), Encoding.UTF8);
         }   
     }
 }

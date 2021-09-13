@@ -12,7 +12,8 @@ namespace PawQuerry
     class Querry<T> : ClassParser
     {
         private System.Reflection.MemberInfo[] classPropName, classVarriables;
-        private JsonManager<T> jm = new JsonManager<T>();
+        private JsonManager jm = new JsonManager();
+        Condition conditions = new Condition();
         public Querry()
         {
             classPropName = getProperties();
@@ -22,9 +23,8 @@ namespace PawQuerry
                 Console.WriteLine("Varriables name:{0}", classVarriables[i]);
             }
         }
-        public void update(string updateColumnName, string newData)
+        public void Update(string updateColumnName, string newData)
         {
-            
             Hashtable data = jm.readJson("deneme");
             try
             {
@@ -33,17 +33,39 @@ namespace PawQuerry
                     if (classPropName[i].Name == updateColumnName)
                     {
                         data[updateColumnName] = newData;
-                        File.WriteAllText("deneme.json",JsonSerializer.Serialize(data),Encoding.UTF8);
+                        jm.WriteJson("deneme.json", data.ToString());
                         break;
                     }
-
                 }
             }
-            catch(Exception ex)
+            catch (WrongSyntaxExpection ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
+        public string Select(string columnName,string conditionColumn,string conditionvalue, string condition)
+        {
+            Hashtable data = jm.readJson("deneme");
+
+            try
+            {
+                for (int i = 0; i < classPropName.Length; i++)
+                {
+                    if (classPropName[i].Name == columnName)
+                    {
+                        Console.WriteLine(conditions.conditions(data[conditionColumn].ToString(), conditionvalue, condition));
+                        if(conditions.conditions(data[conditionColumn].ToString(), conditionvalue,condition))
+                           return data[classPropName[i].Name].ToString();
+                    }
+                }
+            }
+            catch (WrongSyntaxExpection ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
 
     }
 }
