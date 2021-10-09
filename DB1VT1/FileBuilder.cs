@@ -8,33 +8,44 @@ using System.Text.Json;
 
 namespace DB1VT1
 {
-     class FileBuilder<T>
+    class FileBuilder<T>
     {
-        FolderController kontrolEtme = new FolderController();
-        WordHandler wordHandler = new WordHandler();
-        
-       public string NewFile(string tableName, T dataType, string keyWord)
+        private static FileBuilder<T> file;
+        private FileBuilder()
         {
-            string fileAdress = AdressBuilder.adressGenerator(tableName,keyWord)+@"\" + FileNameGenerator(tableName) + ".json";
-            int x = wordHandler.YerBulma(keyWord);
-
-            return fileAdress;
-            
+            folderController = new FolderController();
+            wordHandler = new WordHandler();
+            file = new FileBuilder<T>();
         }
-        public string FileNameGenerator(string Adres)
+
+        public static FileBuilder<T> GetInstance()
+        {
+            return file;
+        }
+        private FolderController folderController;
+        private WordHandler wordHandler;
+
+
+        public string NewFile(string tableName, T dataType, string keyWord)
+        {
+            string fileAdress = AdressBuilder.AdressGenerator(tableName, keyWord) + @"\" + FileNameGenerator(tableName) + ".json";
+            int x = wordHandler.FindLocaiton(keyWord);
+            return fileAdress;
+        }
+        public string FileNameGenerator(string Location)
         {
             Random rnd = new Random();
             int x = (rnd.Next(1000) / 20) * 19;
-            int zaman = DateTime.Now.Millisecond;
-            if (kontrolEtme.dosyaisimKontrol(Adres, "Veri" + x.ToString() + "-" + zaman.ToString() + ".json") == false)
+            int timeMiliMillisecond = DateTime.Now.Millisecond;
+            if (folderController.dosyaisimKontrol(Location, "Data" + x.ToString() + "-" + timeMiliMillisecond.ToString() + ".json") == false)
             {
-                return "Veri" + x.ToString() + "-" + zaman.ToString();
+                return "Data" + x.ToString() + "-" + timeMiliMillisecond.ToString();
             }
             else
             {
-                FileNameGenerator(Adres);
+                FileNameGenerator(Location);
             }
-            return "boş";
+            return "Empty";
         }
     }
 }

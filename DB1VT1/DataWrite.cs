@@ -10,15 +10,18 @@ namespace DB1VT1
 {
     class DataWrite<T>
     {
-        WordHandler wordHandler = new WordHandler();
-        public void dataWrite(string tableName, T Veri, string AnahtarKelime)
-        {
-            StreamWriter yazma = new StreamWriter(AdressBuilder.adressGenerator(tableName,AnahtarKelime));
+        private WordHandler wordHandler;
 
-            string jsonDosya = JsonSerializer.Serialize<T>(Veri);
-            
-            yazma.WriteLine(jsonDosya);
-            yazma.Close();
+        public DataWrite()
+        {
+            wordHandler = new WordHandler();
+        }
+
+        public void dataWrite(string tableName, T data, string keyWord)
+        {
+            StreamWriter writer = new StreamWriter(AdressBuilder.AdressGenerator(tableName,keyWord));
+            writer.WriteLine(JsonSerializer.Serialize(data));
+            writer.Close();
         }
     }
 }

@@ -9,23 +9,22 @@ using System.Linq.Expressions;
 
 namespace DB1VT1
 {
-    class DataRW<T>:IDataRead<T>,IDataWrite<T>
+    class DataRW<T> : IDataRead<T>, IDataWrite<T>
     {
-        IQueryable<T> aranan;
+        IQueryable<T> searchingData;
         WordHandler wordHandler = new WordHandler();
         #region IDataWrite<T>
-        public void dataWrite(string Tablo, T Veri, string AnahtarKelime)
+        public void dataWrite(string Table, T Data, string Keyword)
         {
-            StreamWriter yazma = new StreamWriter(new FileBuilder<T>().NewFile(Tablo,Veri,AnahtarKelime));
-
-            string jsonDosya = JsonSerializer.Serialize<T>(Veri);
-            yazma.WriteLine(jsonDosya);
-            yazma.Close();
+            StreamWriter Write = new StreamWriter(FileBuilder<T>.GetInstance().NewFile(Table, Data, Keyword));
+            Write.WriteLine(JsonSerializer.Serialize(Data));
+            Write.Close();
         }
         #endregion IDataWrite<T>
         #region IDataRead<T>
-        public List<T> ReadJsonWithList(string tableName,string aranacakVeri) {
-            string[] adresler = klasörOku(tableName,AdressBuilder.adressGenerator(tableName,aranacakVeri));
+        public List<T> ReadJsonWithList(string tableName, string aranacakData)
+        {
+            string[] adresler = ReadFolder(AdressBuilder.AdressGenerator(tableName, aranacakData));
             List<T> liste = new List<T>();
             string json;
 
@@ -38,20 +37,20 @@ namespace DB1VT1
             }
             return liste;
         }
-       public string[] klasörOku(string tableName,string yol) {
+        public string[] ReadFolder(string yol)
+        {
             try
             {
-                string[] dosyalar = Directory.GetFiles(yol);
-                return dosyalar;
+                return Directory.GetFiles(yol);
             }
             catch (DirectoryNotFoundException)
             {
                 return null;
             }
         }
-        public T[] ReadData(string tableName,string aranacakVeri)
+        public T[] ReadData(string tableName, string aranacakData)
         {
-            string[] adresler = klasörOku(tableName,AdressBuilder.adressGenerator(tableName,aranacakVeri));
+            string[] adresler = ReadFolder(AdressBuilder.AdressGenerator(tableName, aranacakData));
             T[] liste = new T[adresler.Length];
             string json;
             for (int i = 0; i < liste.Length; i++)
@@ -63,11 +62,11 @@ namespace DB1VT1
             }
             return liste;
         }
-        public T ilkBulunanVeri(string tableName,Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
+        public T FindFirst(string tableName, Func<T, bool> searchingDataExpression, string Keyword)
         {
-            List<T> BulunanDegerler = ReadJsonWithList(tableName,anahtarKelime);
-            aranan = BulunanDegerler.AsQueryable();
-            return aranan.Where(ArananVeriler).FirstOrDefault();
+            List<T> findedList = ReadJsonWithList(tableName, Keyword);
+            searchingData = findedList.AsQueryable();
+            return findedList.Where(searchingDataExpression).FirstOrDefault();
         }
     }
     #endregion IDataRead<T>

@@ -19,7 +19,7 @@ namespace DB1VT1
             //Veritabanı sınıfının tanımlanması.
             //Defining the Database class.
             InsertData<Kişiler> insert = new InsertData<Kişiler>();
-            FileBuilder<Kişiler> file = new FileBuilder<Kişiler>();
+            FileBuilder<Kişiler> file = FileBuilder<Kişiler>.GetInstance();
             DataRW<Kişiler> dataRW = new DataRW<Kişiler>();
             //Tablo sınıfınımız.
             //The table class.
@@ -44,7 +44,7 @@ namespace DB1VT1
             Console.WriteLine(zaman.ElapsedMilliseconds);
             //Veri aranması için kullanılan ilkBulunanVeri metodu.Bir linq ve anahtar kelime parametreleriyle çalışıyor.
             //The ilkbulunanVeri method used to search data.It works with a linq and keyword parameters.
-             Console.WriteLine(dataRW.ilkBulunanVeri("Kişiler",kisininİsmi => kisininİsmi.isim== "Andrews\r\nSafiyah", "Andrews\r\nSafiyah").id);
+             Console.WriteLine(dataRW.FindFirst("Kişiler",kisininİsmi => kisininİsmi.isim== "Andrews\r\nSafiyah", "Andrews\r\nSafiyah").id);
  zaman.Stop();
                  Console.WriteLine("zaman: " + zaman.Elapsed.Milliseconds.ToString());
         }

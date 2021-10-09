@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Text.Json;
 using System.Collections;
 using System.IO;
-using System.Text.RegularExpressions;
-using System.Text.Json.Serialization;
+
 
 namespace PawQuerry
 {
@@ -28,7 +23,7 @@ namespace PawQuerry
             
             return jsonWithKeyAndValue;
         }
-        public void WriteJson(string path, string data)
+        public void WriteJson(string path, object data)
         {
             File.WriteAllText(path,JsonSerializer.Serialize(data), Encoding.UTF8);
         }   

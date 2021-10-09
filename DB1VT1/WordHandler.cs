@@ -8,68 +8,67 @@ namespace DB1VT1
 {
     class WordHandler
     {
-        int altAralık, üstAralık;
-        public int YerBulma(string deger)
+        readonly char[] alphabe =
         {
-            char[] alfabe = { 'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z' };
-            int toplam_deger = 0;
-            char[] parca = deger.ToCharArray();
-            for (int i = 0; i < parca.Length; i++)
+            'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r',
+            's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z'
+        };
+        int BottomLimit, TopLimit;
+        public int FindLocaiton(string value)
+        {
+            int sumOfValue = 0;
+            
+            for (int i = 0; i <value.Length; i++)
             {
-                for (int x = 0; x < alfabe.Length; x++)
+                for (int x = 0; x < alphabe.Length; x++)
                 {
-                    if (parca[i].ToString() == alfabe[x].ToString())
+                    if (value[i].ToString() == alphabe[x].ToString())
                     {
-                        toplam_deger += (i + x) * 10;
+                        sumOfValue += (i + x) * 10;
                     }
                 }
 
             }
-            return toplam_deger;
+            return sumOfValue;
         }
-        public int YerBulmaCarpma(string deger)
+        public int FindLocationMultiplication(string values)
         {
-            char[] alfabe = { 'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'i', 'ı', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş', 't', 'u', 'ü', 'v', 'y', 'z' };
-            int toplam_deger = 0;
-            char[] parca = deger.ToCharArray();
-            for (int i = 0; i < parca.Length; i++)
+            int sumOfValue = 0;
+            for (int i = 0; i < values.Length; i++)
             {
-                for (int x = 0; x < alfabe.Length; x++)
+                for (int x = 0; x < alphabe.Length; x++)
                 {
-                    if (parca[i].ToString() == alfabe[x].ToString())
+                    if (values[i].ToString() == alphabe[x].ToString())
                     {
-                        toplam_deger += ((i * x) + (10 * parca.Length)) * (parca.Length * 2);
+                        sumOfValue += ((i * x) + (10 * values.Length)) * (values.Length * 2);
                     }
                 }
 
             }
-            return toplam_deger;
+            return sumOfValue;
         }
-        public int kelimeHarfSayısı(string kelime)
+        public int WordLetterCount(string word)
         {
-            return kelime.Length;
+            return word.Length;
         }
-        public string aralıkBulma(string girilencekVeri, int aralık)
+        public string FindSpacing(string inputData, int spacingLimit)
         {
 
-            int x = YerBulma(girilencekVeri), y = aralık;
+            int x = FindLocaiton(inputData), y = spacingLimit;
             if (x < y)
             {
                 Console.WriteLine("girilen sayı 0 ile" + y + " arasındadır");
-                this.altAralık = 0;
-                this.üstAralık = y;
+                this.BottomLimit = 0;
+                this.TopLimit = y;
                 return 0.ToString() + "-" + y.ToString();
             }
-            else
-            {
-                x = x / y;
-                x = x * y;
-                int z = x + y;
-                Console.WriteLine(x + " " + x + " " + z);
-                this.üstAralık = z;
-                this.altAralık = x;
-                return üstAralık + "-" + altAralık;
-            }
+            x = x / y;
+            x = x * y;
+            int z = x + y;
+            Console.WriteLine(x + " " + x + " " + z);
+            this.TopLimit = z;
+            this.BottomLimit = x;
+            return TopLimit + "-" + BottomLimit;
         }
     }
 }

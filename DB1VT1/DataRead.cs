@@ -9,20 +9,20 @@ using System.Linq.Expressions;
 
 namespace DB1VT1
 {
-    class DataRead<T>
+    class DataRead<T>:IDataRead<T>
     {
-        IQueryable<T> aranan;
+        IQueryable<T> searchingData;
         public List<T> ReadJsonWithList(string tableName,string aranacakVeri)
         {
-            string[] adresler = klasörOku(AdressBuilder.adressGenerator(tableName,aranacakVeri));
+            string[] paths = ReadFolder(AdressBuilder.AdressGenerator(tableName,aranacakVeri));
             List<T> liste = new List<T>();
             string json;
             try
             {
-                for (int i = 0; i < adresler.Length; i++)
+                for (int i = 0; i < paths.Length; i++)
                 {
-                    Console.WriteLine("Gelen adresler: " + adresler[i]);
-                    StreamReader okuma = new StreamReader(adresler[i].ToString());
+                    Console.WriteLine("Reading paths: " + paths[i]);
+                    StreamReader okuma = new StreamReader(paths[i].ToString());
                     json = okuma.ReadToEnd();
                     liste.Add(JsonSerializer.Deserialize<T>(json));
                 }
@@ -34,7 +34,7 @@ namespace DB1VT1
                 return null;
             }
         }
-        public string[] klasörOku(string yol)
+        public string[] ReadFolder(string yol)
         {
             try
             {
@@ -46,32 +46,32 @@ namespace DB1VT1
                 return null;
             }
         }
-        public T[] jsonOku(string tableName,string aranacakVeri)
+        public T[] ReadData(string tableName,string searchingValue)
         {
-            string[] adresler = klasörOku(AdressBuilder.adressGenerator(tableName,aranacakVeri));
-            T[] liste = new T[adresler.Length];
+            string[] paths = ReadFolder(AdressBuilder.AdressGenerator(tableName, searchingValue)) ?? throw new ArgumentNullException("ReadFolder(AdressBuilder.AdressGenerator(tableName, searchingValue))");
+            T[] liste = new T[paths.Length];
             string json;
             for (int i = 0; i < liste.Length; i++)
             {
-                Console.WriteLine("Gelen adresler: " + adresler[i]);
-                StreamReader okuma = new StreamReader(adresler[i].ToString());
+                Console.WriteLine("Reading paths: " + paths[i]);
+                StreamReader okuma = new StreamReader(paths[i].ToString());
                 json = okuma.ReadToEnd();
                 liste[i] = JsonSerializer.Deserialize<T>(json);
             }
             return liste;
         }
          
-        public T ilkBulunanVeri(string tableName,Expression<Func<T,bool>>ArananVeriler,string anahtarKelime)
+        public T FindFirst(string tableName,Expression<Func<T,bool>>searchExpression,string keyword)
         {
-            List<T> BulunanDegerler = ReadJsonWithList(tableName,anahtarKelime);
-            aranan = BulunanDegerler.AsQueryable();
-           return aranan.Where(ArananVeriler).FirstOrDefault();
+            List<T> FindgData = ReadJsonWithList(tableName,keyword);
+            searchingData = FindgData.AsQueryable();
+           return searchingData.Where(searchExpression).FirstOrDefault();
         }
-        public List<T> BulunanTumVeriler(string tableName,Expression<Func<T, bool>> ArananVeriler, string anahtarKelime)
+        public List<T> FindingAllData(string tableName,Expression<Func<T, bool>> searchingDataVeriler, string anahtarKelime)
         {
-            List<T> BulunanDegerler = ReadJsonWithList(tableName,anahtarKelime);
-            aranan = BulunanDegerler.AsQueryable();
-            return aranan.Where(ArananVeriler).ToList();
+            List<T> FindgData = ReadJsonWithList(tableName,anahtarKelime);
+            searchingData = FindgData.AsQueryable();
+            return searchingData.Where(searchingDataVeriler).ToList();
         }
     }
 }

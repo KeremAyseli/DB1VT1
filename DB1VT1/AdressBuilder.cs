@@ -9,14 +9,14 @@ namespace DB1VT1
 {
     static class AdressBuilder
     {
-        public static string adressGenerator(string tableName,string data)
+        public static string AdressGenerator(string tableName,string data)
         {
             WordHandler wordHandler = new WordHandler();
-            string firstDirectory = wordHandler.aralıkBulma(data, 100),secondDirectory= wordHandler.kelimeHarfSayısı(data).ToString(),trhirdDirectory= wordHandler.YerBulmaCarpma(data).ToString();
-            string path= Environment.CurrentDirectory + @"\Table\" + tableName + @"\" + firstDirectory + @"\" + secondDirectory + "Harf" + @"\" +trhirdDirectory;
+            string firstDirectory =wordHandler.FindSpacing(data, 100),secondDirectory= wordHandler.WordLetterCount(data).ToString(),trhirdDirectory= wordHandler.FindLocationMultiplication(data).ToString();
+            string path= Environment.CurrentDirectory + @"\Table\" + tableName + @"\" + firstDirectory + @"\" + secondDirectory + "Letter" + @"\" +trhirdDirectory;
             string firstFolder = Environment.CurrentDirectory+ @"\Table\" + tableName + @"\" + firstDirectory,
-                secondFolder= Environment.CurrentDirectory + @"\Table\" + tableName + @"\" + firstDirectory + @"\" + secondDirectory + "Harf",
-                thirdFolder= Environment.CurrentDirectory + @"\Table\"+tableName+@"\"+ firstDirectory + @"\" + secondDirectory + "Harf" + @"\" + trhirdDirectory;
+                secondFolder= Environment.CurrentDirectory + @"\Table\" + tableName + @"\" + firstDirectory + @"\" + secondDirectory + "Letter",
+                thirdFolder= Environment.CurrentDirectory + @"\Table\"+tableName+@"\"+ firstDirectory + @"\" + secondDirectory + "Letter" + @"\" + trhirdDirectory;
             if (FolderController(tableName,firstFolder,secondFolder,thirdFolder))
             {
                 return path;
@@ -25,13 +25,13 @@ namespace DB1VT1
         }
         public static bool FolderController(params string[] path)
         {
-            for(int i = 0; i < path.Length; i++)
+            foreach (var t in path)
             {
                 try
                 {
-                    if (!Directory.Exists(path[i]))
+                    if (!Directory.Exists(t))
                     {
-                        Directory.CreateDirectory(path[i]);
+                        Directory.CreateDirectory(t);
                     }  
                 }
                 catch(Exception ex)
@@ -40,6 +40,7 @@ namespace DB1VT1
                     return false;
                 }
             }
+
             return true;
         }
     }
