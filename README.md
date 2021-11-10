@@ -62,6 +62,8 @@ To find data, a simple linq query and a keyword as a parameter are sufficient to
 For better working,I just use one class this will be change next update
 Insert.VeriBul(Id => Id.id == 1,keyword).id.ToString()
 ```
+## About PawQuerry
+PawQuerry is Querry Language for DB1VT1 but is so new to usefull querry.I hope it's gonna querry for json file in future.
 # **Goals**
 I do the instant data selection process using LINQ, and I hope it will be like this in the future because my goal is to make a NoSql database. I do the instant selection process using the IQueryable interface.
 
@@ -127,5 +129,7 @@ Veri bulmak için parametre olarak basit bir linq sorgusu ve bir anahatar kelime
 ```
 veriTabanıBaglnatı.VeriBul(Id => Id.id == 1,aramaİsim).id.ToString()
 ```
+## PawQuery Hakkında
+PawQuerry DB1VT1 için yapmaya çalıştığım bir sorgulama dili,günümüzde hala çok başlarında.İlerleyen zamanlarda Json dosyaları sorgulamak için kullanılabileceğini düşünüyorum.
 # **Hedefler**
 Şu anlık veri seçme işlemini LINQ kullanarak sağlyorum ki gelecekte de böyle olmasını umuyorum çünkü hedefim NoSql bir veri tabanı yapmak.Şu anlık seçme işlemini IQueryable arayüzünü kullanarak yapmaktayım gelecekte bu yapılardan ziyade kendi arama yapılarımı oluşturmak istiyorum.
