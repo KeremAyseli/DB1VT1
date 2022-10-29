@@ -19,6 +19,10 @@ namespace PawQuerry
         public string soyisim { get; set; }
         public string Numara { get; set; }
         //Test
+<<<<<<< HEAD
         //Agac
+=======
+        //Tree
+>>>>>>> Test
     }
 }
