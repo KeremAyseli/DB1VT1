@@ -17,6 +17,6 @@ namespace PawQuerry
         public int id { get; set; }
         public string isim { get; set; }
         public string soyisim { get; set; }
-
+        public string Numara { get; set; }
     }
 }
